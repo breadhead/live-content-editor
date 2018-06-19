@@ -1,0 +1,13 @@
+# dependencies
+node_modules
+
+# production
+build
+dist
+
+# misc
+.vscode
+npm-debug.log
+yarn-error.log
+desktop.ini
+.DS_Store
