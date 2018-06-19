@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <p>hello world!</p>
+        <p>hello world</p>
         <Button />
       </React.Fragment>
     );
