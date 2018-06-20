@@ -1,10 +1,28 @@
 import * as actionTypes from './actionTypes';
+import appData from './../../app-data';
+import axios from '../../axios-data';
 
-const test = (data) => {
+export const showErrorPopup = (message) => {
   return {
-    type: actionTypes.TEST,
-    data
-  }
-}
+    type: actionTypes.SHOW_ERROR_POPUP,
+    message
+  };
+};
 
-export default { test };
+export const initData = data => {
+  return {
+    type: actionTypes.INIT_DATA,
+    data
+  };
+};
+
+export const getData = () => (dispatch) => {
+  axios.get(appData.endPoint)
+    .then((response) => {
+      console.log('response', response.data);
+      dispatch(initData(response.data));
+    }, (error) => {
+      console.log('error', error);
+      dispatch(showErrorPopup(error.message));
+    });
+};
