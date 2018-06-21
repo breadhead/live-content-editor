@@ -17,7 +17,7 @@ export const initData = data => {
 };
 
 export const getData = () => (dispatch) => {
-  axios.get(appData.endPoint)
+  axios.get(appData.endPoint, { headers: { "Access-Control-Allow-Origin": '*' } })
     .then((response) => {
       console.log('response', response.data);
       dispatch(initData(response.data));
