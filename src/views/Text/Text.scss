@@ -16,13 +16,39 @@
     color: #f8d35d;
     margin: 0 0 45px 0;
   }
+
   &__subtitle {
     font-family: Montserrat-Bold, Arial, sans;
     font-size: 40px;
     margin: 0 0 60px 0;
   }
+
   &__description {
     font-size: 32px;
     margin: 0;
+  }
+}
+
+@media(max-width: 600px) {
+  .text {
+
+    &__content {
+      padding: 40px 0 20px 0;
+      width: 60%;
+    }
+
+    &__title {
+      font-size: 24px;
+      margin-bottom: 25px;
+    }
+
+    &__subtitle {
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+
+    &__description {
+      font-size: 18px;
+    }
   }
 }
