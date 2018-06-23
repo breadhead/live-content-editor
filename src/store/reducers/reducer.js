@@ -2,19 +2,19 @@ import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../utils';
 
 const initialState = {
-  test: ''
+  data: []
 };
 
-const test = (state, action) => {
-  const { mememe } = action;
+const initData = (state, action) => {
+  console.log('meme');
   return updateObject(state, {
-    test: mememe
+    data: action.data
   });
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.INIT_DATA: return test(state, action);
+    case actionTypes.INIT_DATA: return initData(state, action);
     default: return state;
   }
 };
