@@ -2,23 +2,27 @@
   font-family: Montserrat-Light, Arial, sans;
   background-color: rgba(255, 202, 76, 0.7);
   background-image: url('../../images/hero_pattern.png');
+
   & .container {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
+
   &__menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 70px;
   }
+
   &__title {
     width: 60%;
     font-size: 72px;
     margin: 0 auto 10% 25%;
   }
+
   &__button-switch-screen {
     height: 33px;
     width: 65px;
@@ -28,6 +32,7 @@
       font-size: 32px;
       position: relative;
       margin-right: 94px;
+
       &::before {
         content: "";
         display: block;
@@ -41,6 +46,7 @@
         height: 32px;
         transform: rotate(180deg);
       }
+    
       &::after {
         content: "";
         display: block;
@@ -51,6 +57,7 @@
         height: 35px;
       }
     }
+  
     &--next {
       align-self: center;
       font-size: 0;
@@ -59,6 +66,7 @@
       background-repeat: no-repeat;
     }
   }
+
   &__button-burger {
     font-size: 0;
     background-image: url('../../images/burger.png');
@@ -69,27 +77,34 @@
 
 @media(max-width: 600px) {
   .hero {
+
     &__menu {
       padding-top: 20px;
     }
+
     &__title {
       font-size: 24px;
     }
+
     &__button-switch-screen {
+
       &--prev {
         font-size: 20px;
         margin-right: 40px;
+
         &::before {
           left: 60px;
           width: 40px;
           top: 6px;
           height: 18px;
         }
+
         &::after {
           width: 60px;
           height: 35px;
         }
       }
+
       &--next {
         margin-bottom: 20px;
       }
