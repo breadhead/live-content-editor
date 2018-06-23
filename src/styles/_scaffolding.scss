@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Montserrat-Light';
+  src: local('Montserrat-Light'), 
+  url('../fonts/Montserrat/Montserrat-Light/Montserrat-Light.woff') format('woff'),
+}
+
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: local('Montserrat-Bold'), 
+  url('../fonts/Montserrat/Montserrat-Bold/Montserrat-Bold.woff') format('woff'),
+}
+
+.container {
+  padding: 0 50px;
+  max-width: 1290px;
+  margin: 0 auto;
+}
