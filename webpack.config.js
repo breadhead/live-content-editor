@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
+
 module.exports = {
   entry: { main: './index.js' },
   output: {
@@ -72,6 +73,13 @@ module.exports = {
           name: 'fonts/[name].[hash:8].[ext]',
         },
       },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i, 
+        loader: 'file-loader',
+        options: {
+          name: 'images/[name].[ext]',
+        },
+    }
     ],
   },
   plugins: [

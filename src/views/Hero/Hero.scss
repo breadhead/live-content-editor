@@ -1,28 +1,98 @@
 .hero {
   font-family: Montserrat-Light, Arial, sans;
   background-color: rgba(255, 202, 76, 0.7);
-
+  background-image: url('../../images/hero_pattern.png');
   & .container {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-
   &__menu {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-top: 70px;
   }
-
   &__title {
     max-width: 1120px;
     font-size: 72px;
     margin: 0 auto 10% auto;
   }
-
   &__button-switch-screen {
-    align-self: center;
-    margin-bottom: 60px;
+    height: 33px;
+    width: 65px;
+    &--prev {
+      font-family: Montserrat-Medium, Arial, sans;
+      color: #fff;
+      font-size: 32px;
+      position: relative;
+      margin-right: 94px;
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 97px;
+        background-image: url('../../images/two_arrows.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 63px;
+        height: 32px;
+        transform: rotate(180deg);
+      }
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 160px;
+        height: 35px;
+      }
+    }
+    &--next {
+      align-self: center;
+      font-size: 0;
+      margin-bottom: 60px;
+      background-image: url('../../images/two_arrows.png');
+      background-repeat: no-repeat;
+    }
+  }
+  &__button-burger {
+    font-size: 0;
+    background-image: url('../../images/burger.png');
+    width: 27px;
+    height: 20px;
+  }
+}
+
+@media(max-width: 600px) {
+  .hero {
+    &__menu {
+      padding-top: 20px;
+    }
+    &__title {
+      font-size: 24px;
+    }
+    &__button-switch-screen {
+      &--prev {
+        font-size: 20px;
+        margin-right: 40px;
+        &::before {
+          left: 60px;
+          width: 40px;
+          top: 6px;
+          height: 18px;
+        }
+        &::after {
+          width: 60px;
+          height: 35px;
+        }
+      }
+      &--next {
+        margin-bottom: 20px;
+      }
+    }
   }
 }
