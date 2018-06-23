@@ -24,6 +24,7 @@ class Hero extends Component {
     console.log('hero', this.props.data);
     return (
       <section className="hero">
+          <video className="hero__video" src={this.props.data.video.src} autoPlay loop muted />
         <div className="container">
           <div className="hero__menu">
             <Button className="hero__button-burger">menu</Button>
