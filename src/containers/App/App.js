@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../store/actions/index';
 
-import Button from '../../components/Button/Button';
+import Hero from '../../views/Hero/Hero';
 
-const propTypes= {
+const propTypes = {
   getData: PropTypes.func.isRequired,
 }
 
@@ -21,8 +21,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <p>hello world</p>
-        <Button />
+        <Hero />
       </React.Fragment>
     );
   }

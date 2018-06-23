@@ -1,0 +1,28 @@
+.hero {
+  font-family: Montserrat-Light, Arial, sans;
+  background-color: rgba(255, 202, 76, 0.7);
+
+  & .container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 70px;
+  }
+
+  &__title {
+    max-width: 1120px;
+    font-size: 72px;
+    margin: 0 auto 10% auto;
+  }
+
+  &__button-switch-screen {
+    align-self: center;
+    margin-bottom: 60px;
+  }
+}
