@@ -15,6 +15,8 @@ class Hero extends Component {
           <div className="hero__menu">
             <Button className="hero__button-burger">menu</Button>
             <Button className="hero__button-switch-screen hero__button-switch-screen--prev">Great</Button>
+            <Button className="hero__button-burger" />
+
           </div>
           <h1 className="hero__title">
             Lorem ipsum dolor
