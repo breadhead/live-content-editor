@@ -5,12 +5,9 @@ const initialState = {
   data: []
 };
 
-const initData = (state, action) => {
-  console.log('meme');
-  return updateObject(state, {
+const initData = (state, action) => updateObject(state, {
     data: action.data
   });
-};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

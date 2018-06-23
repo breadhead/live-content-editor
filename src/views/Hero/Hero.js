@@ -18,13 +18,23 @@ const propTypes = {
   }).isRequired
 }
 
+
+
 class Hero extends Component {
   state = {}
+
+  styles = {
+    backgroundImage: `url(${this.props.data.video.poster})`
+  }
+
   render() {
     console.log('hero', this.props.data);
     return (
-      <section className="hero">
-          <video className="hero__video" src={this.props.data.video.src} autoPlay loop muted />
+      <section
+        className="hero"
+        style={this.styles}
+      >
+        <video className="hero__video" src={this.props.data.video.src} autoPlay loop muted />
         <div className="container">
           <div className="hero__menu">
             <Button className="hero__button-burger">menu</Button>
@@ -35,7 +45,7 @@ class Hero extends Component {
           </h1>
           <Button className="hero__button-switch-screen hero__button-switch-screen--next">next screen</Button>
         </div>
-      </section>
+      </section >
     )
   }
 }
