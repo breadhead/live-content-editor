@@ -1,0 +1,28 @@
+.text {
+  & .container {
+    height: 100vh;
+  }
+
+  &__content {
+    font-family: Montserrat-Light, Arial, sans;
+    width: 53%;
+    box-sizing: border-box;
+    margin: 0 auto 0 25%;
+    padding: 150px 0 150px 0;
+  }
+
+  &__title {
+    font-size: 72px;
+    color: #f8d35d;
+    margin: 0 0 45px 0;
+  }
+  &__subtitle {
+    font-family: Montserrat-Bold, Arial, sans;
+    font-size: 40px;
+    margin: 0 0 60px 0;
+  }
+  &__description {
+    font-size: 32px;
+    margin: 0;
+  }
+}

@@ -1,18 +1,40 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import Button from '../../components/Button/Button';
+import * as actions from '../../store/actions/index';
+
+import Hero from '../../views/Hero/Hero';
+import Text from '../../views/Text/Text';
+
+const propTypes = {
+  getData: PropTypes.func.isRequired,
+}
 
 class App extends Component {
   state = {
   }
+
+  componentDidMount() {
+    this.props.getData();
+  }
+
   render() {
     return (
       <React.Fragment>
-        <p>hello world</p>
-        <Button />
+        <Hero />
+        <Text />
       </React.Fragment>
     );
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    getData: () => dispatch(actions.getData()),
+  };
+};
+
+App.propTypes = propTypes;
+
+export default connect(null, mapDispatchToProps)(App);

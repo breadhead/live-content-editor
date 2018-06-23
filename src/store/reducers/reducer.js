@@ -14,7 +14,7 @@ const test = (state, action) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.TEST: return test(state, action);
+    case actionTypes.INIT_DATA: return test(state, action);
     default: return state;
   }
 };

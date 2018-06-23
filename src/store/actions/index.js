@@ -1,3 +1,1 @@
-import action from './action';
-
-export default { action };
+export { getData } from './action';
