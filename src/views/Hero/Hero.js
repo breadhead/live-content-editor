@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../../components/Button/Button';
-import '../../images/two_arrows.png'
+import EditButton from '../../components/EditButton/EditButton';
+import HeroTitle from '../../components/HeroTitle/HeroTitle';
+import HeroVideo from '../../components/HeroVideo/HeroVideo';
+import HeroPoster from '../../components/HeroPoster/HeroPoster';
 
 import './Hero.scss';
 
@@ -15,37 +18,55 @@ const propTypes = {
       poster: PropTypes.string,
       src: PropTypes.string
     })
-  }).isRequired
+  }).isRequired,
+  setData: PropTypes.func.isRequired
 }
 
-
-
 class Hero extends Component {
-  state = {}
+  state = {
+    isEditing: false,
+    title: this.props.data.title,
+    poster: this.props.data.video.poster,
+    src: this.props.data.video.src,
+  }
 
-  styles = {
-    backgroundImage: `url(${this.props.data.video.poster})`
+  toggleEditorState = () => {
+    const data = {
+      id: this.props.data.id,
+      type: this.props.data.type,
+      title: this.state.title,
+      video: {
+        poster: this.state.poster,
+        src: this.state.src
+      }
+    }
+
+    if (this.state.isEditing) {
+      this.props.setData(this.props.data.id, data);
+    }
+    this.setState({ isEditing: !this.state.isEditing })
+  }
+
+  handleChange = (fieldId, value) => {
+    this.setState({ [fieldId]: value })
   }
 
   render() {
-    console.log('hero', this.props.data);
     return (
-      <section
-        className="hero"
-        style={this.styles}
-      >
-        <video className="hero__video" src={this.props.data.video.src} autoPlay loop muted />
+      <HeroPoster poster={this.state.poster} isEditing={this.state.isEditing} handleChange={this.handleChange} >
+        <HeroVideo src={this.state.src} isEditing={this.state.isEditing} handleChange={this.handleChange} />
         <div className="container">
           <div className="hero__menu">
             <Button className="hero__button-burger">menu</Button>
             <Button className="hero__button-switch-screen hero__button-switch-screen--prev">Great</Button>
           </div>
-          <h1 className="hero__title">
-            {this.props.data.title}
-          </h1>
-          <Button className="hero__button-switch-screen hero__button-switch-screen--next">next screen</Button>
+          <HeroTitle title={this.state.title} isEditing={this.state.isEditing} handleChange={this.handleChange} />
+          <div className="hero__footer">
+            <Button className="hero__button-switch-screen hero__button-switch-screen--next">next screen</Button>
+            <EditButton onClick={this.toggleEditorState} isEditing={this.state.isEditing} />
+          </div>
         </div>
-      </section >
+      </HeroPoster>
     )
   }
 }

@@ -1,1 +1,1 @@
-export { getData } from './action';
+export { getData, setData } from './action';

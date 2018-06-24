@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 const propTypes = {
+  onInputValueChange: PropTypes.func.isRequired,
   id: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
   type: PropTypes.string,
   className: PropTypes.string,
   name: PropTypes.string,
@@ -20,7 +21,7 @@ const defaultProps = {
   name: null,
   readOnly: false,
   onChange: null,
-  required: null
+  required: null,
 };
 
 class Input extends Component {
@@ -38,6 +39,8 @@ class Input extends Component {
     }
   };
 
+
+
   render() {
     return (
       <input
@@ -49,6 +52,7 @@ class Input extends Component {
         readOnly={this.props.readOnly}
         required={this.props.required}
         onChange={this.inputChangeHandler}
+        onInput={this.props.onInputValueChange}
       />
     );
   }

@@ -16,14 +16,20 @@ export const showErrorPopup = message => {
   };
 };
 
-
-export const getData = () => (dispatch) => {
+export const getData = () => dispatch => {
   axios.get(appData.endPoint)
     .then((response) => {
-      console.log('response', response.data);
       dispatch(initData(response.data));
-    }, (error) => {
-      console.log('error', error);
+    })
+    .catch((error) => {
       dispatch(showErrorPopup(error.message));
     });
+};
+
+export const setData = (id, data) => dispatch => {
+  axios
+    .put(`${appData.endPoint}/${id}`, data)
+    .catch(error => {
+      dispatch(showErrorPopup(error.message));
+    })
 };

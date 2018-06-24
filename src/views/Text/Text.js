@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import nanoId from 'nanoid';
+
+import EditButton from '../../components/EditButton/EditButton';
+import TextTitle from '../../components/TextTitle/TextTitle';
+import TextSubtitle from '../../components/TextSubtitle/TextSubtitle';
+import TextDescription from '../../components/TextDescription/TextDescription';
+import TextPoster from '../../components/TextPoster/TextPoster';
+import TextContent from '../../components/TextContent/TextContent';
 
 import './Text.scss';
 
@@ -13,36 +19,53 @@ const propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     description: PropTypes.arrayOf(PropTypes.string)
-  }).isRequired
+  }).isRequired,
+  setData: PropTypes.func.isRequired
 }
 
 class Text extends Component {
   state = {
+    isEditing: false,
+    textAlign: this.props.data.textAlign,
+    poster: this.props.data.backgroundImg,
+    title: this.props.data.title,
+    subtitle: this.props.data.subtitle,
+    description: this.props.data.description,
   }
 
-  componentStyles = {
-    backgroundImage: `url(${this.props.data.backgroundImg})`
+  toggleEditorState = () => {
+    const data = {
+      id: this.props.data.id,
+      type: this.props.data.type,
+      textAlign: this.state.textAlign,
+      backgroundImg: this.state.poster,
+      title: this.state.title,
+      subtitle: this.state.subtitle,
+      description: this.state.description
+    }
+
+    if (this.state.isEditing) {
+      this.props.setData(this.props.data.id, data);
+    }
+    this.setState({ isEditing: !this.state.isEditing })
   }
 
-  contentStyles = {
-    justifyContent: this.props.data.textAlign
+  handleChange = (fieldId, value) => {
+    this.setState({ [fieldId]: value })
   }
 
   render() {
     return (
-      <section className="text" style={this.componentStyles}>
+      <TextPoster poster={this.state.poster} isEditing={this.state.isEditing} handleChange={this.handleChange} >
         <div className="container">
-          <div className="text__content" style={this.contentStyles}>
-            <h2 className="text__title">
-              {this.props.data.title}
-            </h2>
-            <h3 className="text__subtitle">
-              {this.props.data.subtitle}
-            </h3>
-            {this.props.data.description[0].replace(/\n/g, '***').split('***').map(item => <p key={nanoId()} className="text__description">{item}</p>)}
-          </div>
+          <TextContent textAlign={this.state.textAlign} isEditing={this.state.isEditing} handleChange={this.handleChange}>
+            <TextTitle title={this.state.title} isEditing={this.state.isEditing} handleChange={this.handleChange} />
+            <TextSubtitle subtitle={this.state.subtitle} isEditing={this.state.isEditing} handleChange={this.handleChange} />
+            <TextDescription description={this.state.description} isEditing={this.state.isEditing} handleChange={this.handleChange} />
+          </TextContent>
+          <EditButton onClick={this.toggleEditorState} isEditing={this.state.isEditing} />
         </div>
-      </section>
+      </TextPoster>
     )
   }
 }
