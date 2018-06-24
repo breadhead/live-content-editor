@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 const propTypes = {
+  onInputValueChange: PropTypes.func.isRequired,
   id: PropTypes.string,
   value: PropTypes.string,
   type: PropTypes.string,
@@ -49,6 +50,7 @@ class Input extends Component {
         readOnly={this.props.readOnly}
         required={this.props.required}
         onChange={this.inputChangeHandler}
+        onInput={this.props.onInputValueChange}
       />
     );
   }

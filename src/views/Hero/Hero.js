@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Button from '../../components/Button/Button';
 import EditButton from '../../components/EditButton/EditButton';
+import HeroTitle from '../../components/HeroTitle/HeroTitle';
 
 import './Hero.scss';
 
@@ -20,7 +21,7 @@ const propTypes = {
 
 class Hero extends Component {
   state = {
-    editorState: false
+    isEditing: false
   }
 
   styles = {
@@ -28,11 +29,11 @@ class Hero extends Component {
   }
 
   toggleEditorState = () => {
-    this.setState({editorState: !this.state.editorState})
+    this.setState({ isEditing: !this.state.isEditing })
   }
 
   render() {
-    console.log(this.state.editorState);
+    console.log(this.state.isEditing);
     return (
       <section
         className="hero"
@@ -44,12 +45,10 @@ class Hero extends Component {
             <Button className="hero__button-burger">menu</Button>
             <Button className="hero__button-switch-screen hero__button-switch-screen--prev">Great</Button>
           </div>
-          <h1 className="hero__title">
-            {this.props.data.title}
-          </h1>
+          <HeroTitle title={this.props.data.title} isEditing={this.state.isEditing} />
           <div className="hero__footer">
             <Button className="hero__button-switch-screen hero__button-switch-screen--next">next screen</Button>
-            <EditButton onClick={this.toggleEditorState} editorState={this.state.editorState}/>
+            <EditButton onClick={this.toggleEditorState} isEditing={this.state.isEditing} />
           </div>
         </div>
       </section>

@@ -7,7 +7,7 @@ import './EditButton.scss';
 
 const propTypes = {
   onClick: PropTypes.func.isRequired,
-  editorState: PropTypes.bool.isRequired
+  isEditing: PropTypes.bool.isRequired
 }
 
 class EditButton extends Component {
@@ -15,7 +15,7 @@ class EditButton extends Component {
   render() {
     return (
         <Button
-          className={`button button__editor ${this.props.editorState ? 'button__editor--save' : 'button__editor--edit'}`}
+          className={`button button__editor ${this.props.isEditing ? 'button__editor--save' : 'button__editor--edit'}`}
           onClick={this.props.onClick}
         />
     )
