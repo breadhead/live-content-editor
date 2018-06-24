@@ -11,6 +11,7 @@ import ErrorPopup from '../../components/ErrorPopup/ErrorPopup';
 
 const propTypes = {
   getData: PropTypes.func.isRequired,
+  setData: PropTypes.func.isRequired,
   data: PropTypes.PropTypes.arrayOf(PropTypes.object).isRequired,
   errorMessage: PropTypes.string.isRequired,
   visibleError: PropTypes.bool.isRequired
@@ -48,8 +49,8 @@ class App extends Component {
     return (
       <React.Fragment>
         <Loader isLoading={this.props.data.length > 0}>
-          <Hero data={this.state.hero} />
-          <Text data={this.state.text} />
+          <Hero data={this.state.hero} setData={this.props.setData}/>
+          <Text data={this.state.text} setData={this.props.setData}/>
         </Loader>
         <ErrorPopup visible={this.props.visibleError} errorMessage={this.props.errorMessage} />
       </React.Fragment>
@@ -68,6 +69,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getData: () => dispatch(actions.getData()),
+    setData: (id, data) => dispatch(actions.setData(id, data)),
   };
 };
 

@@ -18,7 +18,8 @@ const propTypes = {
       poster: PropTypes.string,
       src: PropTypes.string
     })
-  }).isRequired
+  }).isRequired,
+  setData: PropTypes.func.isRequired
 }
 
 class Hero extends Component {
@@ -26,12 +27,22 @@ class Hero extends Component {
     isEditing: false,
     title: this.props.data.title,
     poster: this.props.data.video.poster,
-    src: this.props.data.video.src
+    src: this.props.data.video.src,
   }
 
   toggleEditorState = () => {
+    const data = {
+      id: this.props.data.id,
+      type: this.props.data.type,
+      title: this.state.title,
+      video: {
+        poster: this.state.poster,
+        src: this.state.src
+      }
+    }
+
     if (this.state.isEditing) {
-      console.log('put request');
+      this.props.setData(this.props.data.id, data);
     }
     this.setState({ isEditing: !this.state.isEditing })
   }

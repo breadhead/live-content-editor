@@ -13,6 +13,7 @@ const initData = (state, action) => updateObject(state, {
 
 const showErrorPopup = (state, action) => updateObject(state, { visibleError: true, errorMessage: action.message.toLowerCase() })
 
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.INIT_DATA: return initData(state, action);
