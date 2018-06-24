@@ -22,7 +22,7 @@ class HeroVideo extends Component {
   render() {
     if (this.props.isEditing) {
       return (
-        <div className="hero__edit-field hero__edit-field--video">
+        <div className="hero__edit-field hero__edit-field--extra hero__edit-field--video">
           <label className="hero__label" htmlFor="hero-video">ссылка для фонового видео:</label>
           <Input className="hero__input" id="hero-video" onInputValueChange={this.onInputValueChange} value={this.state.src} />
         </div>

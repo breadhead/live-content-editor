@@ -1,7 +1,48 @@
 .text {
+  position: relative;
+
   & .container {
     height: 100vh;
     position: relative;
+  }
+
+  &__edit-field {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+
+    &--extra {
+      position: absolute;
+      z-index: 5;
+
+      &:first-of-type {
+        top: 5%;
+      }
+
+      &:nth-of-type(2) {
+        top: 20%;
+      }
+    }
+  }
+
+  &__label {
+    font-family: Montserrat-Light, Arial, sans;
+    display: inline-block;
+    background-color: #fff;
+    margin-right: 20px;
+    padding: 0 5px;
+    border-radius: 2px;
+    width: 35%;
+    font-size: 20px;
+  }
+
+  &__input {
+    font-family: Montserrat-Light, Arial, sans;
+    border-radius: 2px;
+    padding: 5px;
+    width: 45%;
+    border: none;
+    font-size: 20px;
   }
 
   &__content {
