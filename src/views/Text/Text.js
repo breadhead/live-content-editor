@@ -4,6 +4,7 @@ import nanoId from 'nanoid';
 
 import EditButton from '../../components/EditButton/EditButton';
 import TextTitle from '../../components/TextTitle/TextTitle';
+import TextSubtitle from '../../components/TextSubtitle/TextSubtitle';
 
 import './Text.scss';
 
@@ -49,9 +50,7 @@ class Text extends Component {
         <div className="container">
           <div className="text__content" style={this.contentStyles}>
             <TextTitle title={this.state.title} isEditing={this.state.isEditing} handleChange={this.handleChange} />
-            <h3 className="text__subtitle">
-              {this.props.data.subtitle}
-            </h3>
+            <TextSubtitle subtitle={this.state.subtitle} isEditing={this.state.isEditing} handleChange={this.handleChange} />
             {this.props.data.description[0].replace(/\n/g, '***').split('***').map(item => <p key={nanoId()} className="text__description">{item}</p>)}
           </div>
           <EditButton onClick={this.toggleEditorState} isEditing={this.state.isEditing} />
