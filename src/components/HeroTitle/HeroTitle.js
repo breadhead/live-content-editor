@@ -20,9 +20,9 @@ class HeroTitle extends Component {
   render() {
     if (this.props.isEditing) {
       return (
-        <div>
-          <label className="hero__label" htmlFor="hero-video">заголовок:</label>
-          <Input className="hero__input" onInputValueChange={this.onInputValueChange} value={this.state.title} />
+        <div className="hero__edit-field hero__edit-field--title">
+          <label className="hero__label" htmlFor="hero-title">заголовок:</label>
+          <Input className="hero__input" id="hero-title" onInputValueChange={this.onInputValueChange} value={this.state.title} />
         </div>)
     }
 

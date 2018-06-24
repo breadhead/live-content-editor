@@ -5,6 +5,7 @@ import Button from '../../components/Button/Button';
 import EditButton from '../../components/EditButton/EditButton';
 import HeroTitle from '../../components/HeroTitle/HeroTitle';
 import HeroVideo from '../../components/HeroVideo/HeroVideo';
+import HeroPoster from '../../components/HeroPoster/HeroPoster';
 
 import './Hero.scss';
 
@@ -35,10 +36,7 @@ class Hero extends Component {
 
   render() {
     return (
-      <section
-        className="hero"
-        style={this.styles}
-      >
+      <HeroPoster poster={this.props.data.video.poster} isEditing={this.state.isEditing}>
         <HeroVideo src={this.props.data.video.src} isEditing={this.state.isEditing} />
         <div className="container">
           <div className="hero__menu">
@@ -51,7 +49,7 @@ class Hero extends Component {
             <EditButton onClick={this.toggleEditorState} isEditing={this.state.isEditing} />
           </div>
         </div>
-      </section>
+      </HeroPoster>
     )
   }
 }
