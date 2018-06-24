@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../../components/Button/Button';
-import '../../images/two_arrows.png'
+import EditButton from '../../components/EditButton/EditButton';
 
 import './Hero.scss';
 
@@ -18,17 +18,21 @@ const propTypes = {
   }).isRequired
 }
 
-
-
 class Hero extends Component {
-  state = {}
+  state = {
+    editorState: false
+  }
 
   styles = {
     backgroundImage: `url(${this.props.data.video.poster})`
   }
 
+  toggleEditorState = () => {
+    this.setState({editorState: !this.state.editorState})
+  }
+
   render() {
-    console.log('hero', this.props.data);
+    console.log(this.state.editorState);
     return (
       <section
         className="hero"
@@ -43,9 +47,12 @@ class Hero extends Component {
           <h1 className="hero__title">
             {this.props.data.title}
           </h1>
-          <Button className="hero__button-switch-screen hero__button-switch-screen--next">next screen</Button>
+          <div className="hero__footer">
+            <Button className="hero__button-switch-screen hero__button-switch-screen--next">next screen</Button>
+            <EditButton onClick={this.toggleEditorState} editorState={this.state.editorState}/>
+          </div>
         </div>
-      </section >
+      </section>
     )
   }
 }

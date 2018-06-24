@@ -1,23 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+
+const getConsoleLog = () => console.log('button clicked');
+
 const propTypes = {
   className: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
   children: PropTypes.string
 }
 
 const defaultProps = {
-  children: ''
+  children: '',
+  onClick: getConsoleLog
 }
 
 class Button extends Component {
-  getConsoleLog = () => console.log('button clicked');
-
+  state = {}
   render() {
     return (
       <button
         className={this.props.className}
-        onClick={this.getConsoleLog}>
+        onClick={this.props.onClick}>
         {this.props.children}
       </button>
     );

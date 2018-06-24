@@ -33,6 +33,13 @@
     margin: 0 auto 10% 29%;
   }
 
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 60px;
+  }
+
   &__button-switch-screen {
     height: 33px;
     width: 65px;
@@ -68,9 +75,7 @@
     }
   
     &--next {
-      align-self: center;
       font-size: 0;
-      margin-bottom: 60px;
       background-image: url('../../images/two_arrows.png');
       background-repeat: no-repeat;
     }
@@ -117,10 +122,10 @@
           height: 35px;
         }
       }
-
-      &--next {
-        margin-bottom: 20px;
-      }
+    }
+    
+    &__footer {
+      padding-bottom: 20px;
     }
   }
 }
