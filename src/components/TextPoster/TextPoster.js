@@ -20,10 +20,6 @@ class TextPoster extends Component {
     this.setState({ poster: e.target.value })
   }
 
-  styles = {
-
-  }
-
   render() {
     return (
       <section className="text" style={{ backgroundImage: `url(${this.state.poster})` }}>

@@ -6,6 +6,7 @@ import TextTitle from '../../components/TextTitle/TextTitle';
 import TextSubtitle from '../../components/TextSubtitle/TextSubtitle';
 import TextDescription from '../../components/TextDescription/TextDescription';
 import TextPoster from '../../components/TextPoster/TextPoster';
+import TextContent from '../../components/TextContent/TextContent';
 
 import './Text.scss';
 
@@ -27,15 +28,8 @@ class Text extends Component {
     title: this.props.data.title,
     subtitle: this.props.data.subtitle,
     description: this.props.data.description,
-    poster: this.props.data.backgroundImg
-  }
-
-  componentStyles = {
-    backgroundImage: `url(${this.props.data.backgroundImg})`
-  }
-
-  contentStyles = {
-    justifyContent: this.props.data.textAlign
+    poster: this.props.data.backgroundImg,
+    textAlign: this.props.data.textAlign
   }
 
   toggleEditorState = () => {
@@ -52,11 +46,11 @@ class Text extends Component {
     return (
       <TextPoster poster={this.state.poster} isEditing={this.state.isEditing} handleChange={this.handleChange} >
         <div className="container">
-          <div className="text__content" style={this.contentStyles}>
+          <TextContent textAlign={this.state.textAlign} isEditing={this.state.isEditing} handleChange={this.handleChange}>
             <TextTitle title={this.state.title} isEditing={this.state.isEditing} handleChange={this.handleChange} />
             <TextSubtitle subtitle={this.state.subtitle} isEditing={this.state.isEditing} handleChange={this.handleChange} />
             <TextDescription description={this.state.description} isEditing={this.state.isEditing} handleChange={this.handleChange} />
-          </div>
+          </TextContent>
           <EditButton onClick={this.toggleEditorState} isEditing={this.state.isEditing} />
         </div>
       </TextPoster>

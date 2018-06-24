@@ -20,10 +20,6 @@ class HeroPoster extends Component {
     this.setState({ poster: e.target.value })
   }
 
-  styles = {
-
-  }
-
   render() {
     return (
       <section className="hero" style={{ backgroundImage: `url(${this.state.poster})` }}>

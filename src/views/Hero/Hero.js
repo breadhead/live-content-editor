@@ -29,10 +29,6 @@ class Hero extends Component {
     src: this.props.data.video.src
   }
 
-  styles = {
-    backgroundImage: `url(${this.props.data.video.poster})`
-  }
-
   toggleEditorState = () => {
     this.setState({ isEditing: !this.state.isEditing })
   }
