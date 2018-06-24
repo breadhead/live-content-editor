@@ -20,10 +20,9 @@ export const showErrorPopup = message => {
 export const getData = () => (dispatch) => {
   axios.get(appData.endPoint)
     .then((response) => {
-      console.log('response', response.data);
       dispatch(initData(response.data));
-    }, (error) => {
-      console.log('error', error);
+    })
+    .catch((error) => {
       dispatch(showErrorPopup(error.message));
     });
 };
