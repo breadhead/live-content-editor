@@ -19,32 +19,18 @@ class HeroTitle extends Component {
   }
 
   styles = {
-    backgroundImage: `url(${this.props.poster})`
+
   }
 
-
   render() {
-    if (this.props.isEditing) {
-      return (
-        <div>
-          <section
-            className="hero"
-            style={this.styles}
-          >
-            <div className="hero__edit-field hero__edit-field--poster">
-              <label className="hero__label" htmlFor="hero-poster">ссылка для фоновой картинки:</label>
-              <Input className="hero__input" id="hero-poster" onInputValueChange={this.onInputValueChange} value={this.state.poster} />
-            </div>
-            {this.props.children}
-          </section>
-        </div>)
-    }
-
     return (
-      <section
-        className="hero"
-        style={this.styles}
-      >
+      <section className="hero" style={{ backgroundImage: `url(${this.state.poster})` }}>
+        {this.props.isEditing && (
+          <div className="hero__edit-field hero__edit-field--poster">
+            <label className="hero__label" htmlFor="hero-poster">ссылка для фоновой картинки:</label>
+            <Input className="hero__input" id="hero-poster" onInputValueChange={this.onInputValueChange} value={this.state.poster} />
+          </div>
+        )}
         {this.props.children}
       </section>
     )
