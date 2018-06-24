@@ -23,7 +23,10 @@ const propTypes = {
 
 class Hero extends Component {
   state = {
-    isEditing: false
+    isEditing: false,
+    title: this.props.data.title,
+    poster: this.props.data.video.poster,
+    src: this.props.data.video.src
   }
 
   styles = {
@@ -34,16 +37,20 @@ class Hero extends Component {
     this.setState({ isEditing: !this.state.isEditing })
   }
 
+  handleChange = (fieldId, value) => {
+    this.setState({ [fieldId]: value })
+  }
+
   render() {
     return (
-      <HeroPoster poster={this.props.data.video.poster} isEditing={this.state.isEditing}>
-        <HeroVideo src={this.props.data.video.src} isEditing={this.state.isEditing} />
+      <HeroPoster poster={this.state.poster} isEditing={this.state.isEditing} handleChange={this.handleChange} >
+        <HeroVideo src={this.state.src} isEditing={this.state.isEditing} handleChange={this.handleChange} />
         <div className="container">
           <div className="hero__menu">
             <Button className="hero__button-burger">menu</Button>
             <Button className="hero__button-switch-screen hero__button-switch-screen--prev">Great</Button>
           </div>
-          <HeroTitle title={this.props.data.title} isEditing={this.state.isEditing} />
+          <HeroTitle title={this.state.title} isEditing={this.state.isEditing} handleChange={this.handleChange} />
           <div className="hero__footer">
             <Button className="hero__button-switch-screen hero__button-switch-screen--next">next screen</Button>
             <EditButton onClick={this.toggleEditorState} isEditing={this.state.isEditing} />

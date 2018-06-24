@@ -5,7 +5,8 @@ import Input from '../Input/Input';
 
 const propTypes = {
   title: PropTypes.string.isRequired,
-  isEditing: PropTypes.bool.isRequired
+  isEditing: PropTypes.bool.isRequired,
+  handleChange: PropTypes.func.isRequired
 }
 
 class HeroTitle extends Component {
@@ -14,6 +15,7 @@ class HeroTitle extends Component {
   }
 
   onInputValueChange = (e) => {
+    this.props.handleChange('title', e.target.value);
     this.setState({ title: e.target.value })
   }
 

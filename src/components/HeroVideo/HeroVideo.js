@@ -5,7 +5,8 @@ import Input from '../Input/Input';
 
 const propTypes = {
   src: PropTypes.string.isRequired,
-  isEditing: PropTypes.bool.isRequired
+  isEditing: PropTypes.bool.isRequired,
+  handleChange: PropTypes.func.isRequired
 }
 
 class HeroVideo extends Component {
@@ -14,6 +15,7 @@ class HeroVideo extends Component {
   }
 
   onInputValueChange = (e) => {
+    this.props.handleChange('src', e.target.value);
     this.setState({ src: e.target.value })
   }
 
