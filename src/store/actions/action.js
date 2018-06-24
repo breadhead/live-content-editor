@@ -16,8 +16,7 @@ export const showErrorPopup = message => {
   };
 };
 
-
-export const getData = () => (dispatch) => {
+export const getData = () => dispatch => {
   axios.get(appData.endPoint)
     .then((response) => {
       dispatch(initData(response.data));
@@ -25,4 +24,15 @@ export const getData = () => (dispatch) => {
     .catch((error) => {
       dispatch(showErrorPopup(error.message));
     });
+};
+
+export const setData = (id, data) => dispatch => {
+  console.log('set RR');
+  console.log(`${id}.json`, data);
+  console.log('dispatch', dispatch);
+  // axios
+  //   .put(`${id}.json`, data)
+  //   .catch(error => {
+  //     dispatch(showErrorPopup(error.message));
+  //   })
 };
