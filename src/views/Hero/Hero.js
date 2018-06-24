@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Button from '../../components/Button/Button';
 import EditButton from '../../components/EditButton/EditButton';
 import HeroTitle from '../../components/HeroTitle/HeroTitle';
+import HeroVideo from '../../components/HeroVideo/HeroVideo';
 
 import './Hero.scss';
 
@@ -33,13 +34,12 @@ class Hero extends Component {
   }
 
   render() {
-    console.log(this.state.isEditing);
     return (
       <section
         className="hero"
         style={this.styles}
       >
-        <video className="hero__video" src={this.props.data.video.src} autoPlay loop muted />
+        <HeroVideo src={this.props.data.video.src} isEditing={this.state.isEditing} />
         <div className="container">
           <div className="hero__menu">
             <Button className="hero__button-burger">menu</Button>

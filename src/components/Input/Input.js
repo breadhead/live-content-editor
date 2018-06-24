@@ -21,7 +21,7 @@ const defaultProps = {
   name: null,
   readOnly: false,
   onChange: null,
-  required: null
+  required: null,
 };
 
 class Input extends Component {
@@ -38,6 +38,8 @@ class Input extends Component {
       onChange(value);
     }
   };
+
+
 
   render() {
     return (

@@ -14,12 +14,16 @@ class HeroTitle extends Component {
   }
 
   onInputValueChange = (e) => {
-    this.setState({title: e.target.value})
+    this.setState({ title: e.target.value })
   }
 
   render() {
     if (this.props.isEditing) {
-      return <Input className="hero__title" onInputValueChange={this.onInputValueChange} />
+      return (
+        <div>
+          <label className="hero__label" htmlFor="hero-video">заголовок:</label>
+          <Input className="hero__input" onInputValueChange={this.onInputValueChange} value={this.state.title} />
+        </div>)
     }
 
     return (
