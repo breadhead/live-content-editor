@@ -10,7 +10,7 @@ const propTypes = {
   handleChange: PropTypes.func.isRequired
 }
 
-class HeroPoster extends Component {
+class TextPoster extends Component {
   state = {
     poster: this.props.poster
   }
@@ -26,11 +26,11 @@ class HeroPoster extends Component {
 
   render() {
     return (
-      <section className="hero" style={{ backgroundImage: `url(${this.state.poster})` }}>
+      <section className="text" style={{ backgroundImage: `url(${this.state.poster})` }}>
         {this.props.isEditing && (
-          <div className="hero__edit-field hero__edit-field--poster">
-            <label className="hero__label" htmlFor="hero-poster">ссылка для фоновой картинки:</label>
-            <Input className="hero__input" id="hero-poster" onInputValueChange={this.onInputValueChange} value={this.state.poster} />
+          <div className="text__edit-field text__edit-field--poster">
+            <label className="text__label" htmlFor="text-poster">ссылка для фоновой картинки:</label>
+            <Input className="text__input" id="text-poster" onInputValueChange={this.onInputValueChange} value={this.state.poster} />
           </div>
         )}
         {this.props.children}
@@ -39,6 +39,6 @@ class HeroPoster extends Component {
   }
 }
 
-HeroPoster.propTypes = propTypes;
+TextPoster.propTypes = propTypes;
 
-export default HeroPoster;
+export default TextPoster;

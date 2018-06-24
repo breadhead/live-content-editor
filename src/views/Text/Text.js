@@ -5,6 +5,7 @@ import EditButton from '../../components/EditButton/EditButton';
 import TextTitle from '../../components/TextTitle/TextTitle';
 import TextSubtitle from '../../components/TextSubtitle/TextSubtitle';
 import TextDescription from '../../components/TextDescription/TextDescription';
+import TextPoster from '../../components/TextPoster/TextPoster';
 
 import './Text.scss';
 
@@ -25,7 +26,8 @@ class Text extends Component {
     isEditing: false,
     title: this.props.data.title,
     subtitle: this.props.data.subtitle,
-    description: this.props.data.description
+    description: this.props.data.description,
+    poster: this.props.data.backgroundImg
   }
 
   componentStyles = {
@@ -48,7 +50,7 @@ class Text extends Component {
   render() {
     console.log('text state', this.state);
     return (
-      <section className="text" style={this.componentStyles}>
+      <TextPoster poster={this.state.poster} isEditing={this.state.isEditing} handleChange={this.handleChange} >
         <div className="container">
           <div className="text__content" style={this.contentStyles}>
             <TextTitle title={this.state.title} isEditing={this.state.isEditing} handleChange={this.handleChange} />
@@ -57,7 +59,7 @@ class Text extends Component {
           </div>
           <EditButton onClick={this.toggleEditorState} isEditing={this.state.isEditing} />
         </div>
-      </section>
+      </TextPoster>
     )
   }
 }
