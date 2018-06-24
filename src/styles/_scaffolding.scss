@@ -18,6 +18,11 @@
   src: local('Montserrat-Medium'), url('../fonts/Montserrat/Montserrat-Medium/Montserrat-Medium.woff') format('woff'),
 }
 
+body {
+  font-size: 32px;
+  line-height: 1.2em;
+}
+
 button {
   border: none;
   background-color: transparent;
