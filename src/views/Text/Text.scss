@@ -14,14 +14,12 @@
     &--extra {
       position: absolute;
       z-index: 5;
+      left: 5%;
 
       &:first-of-type {
         top: 5%;
       }
 
-      &:nth-of-type(2) {
-        top: 20%;
-      }
     }
   }
 
@@ -74,6 +72,38 @@
 
 @media(max-width: 700px) {
   .text {
+  
+    &__edit-field {
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+  
+      &:first-of-type {
+        margin-top: 20%;
+      }
+
+      &--extra {
+        position: absolute;
+        z-index: 5;
+  
+        &:first-of-type {
+          top: 0;
+          margin-top: 0;
+        }
+      }
+    }
+
+    &__label {
+      display: block;
+      width: 80%;
+      font-size: 18px;
+    }
+  
+    &__input {
+      width: 80%;
+      border: none;
+      font-size: 18px;
+    }
 
     &__content {
       padding: 40px 0 20px 0;
