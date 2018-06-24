@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import nanoId from 'nanoid';
 
+import EditButton from '../../components/EditButton/EditButton';
+import TextTitle from '../../components/TextTitle/TextTitle';
+
 import './Text.scss';
 
 const propTypes = {
@@ -18,6 +21,8 @@ const propTypes = {
 
 class Text extends Component {
   state = {
+    isEditing: false,
+    title: this.props.data.title,
   }
 
   componentStyles = {
@@ -28,19 +33,28 @@ class Text extends Component {
     justifyContent: this.props.data.textAlign
   }
 
+  toggleEditorState = () => {
+    this.setState({ isEditing: !this.state.isEditing })
+  }
+
+  handleChange = (fieldId, value) => {
+    this.setState({ [fieldId]: value })
+  }
+
+
   render() {
+    console.log('title', this.state.title);
     return (
       <section className="text" style={this.componentStyles}>
         <div className="container">
           <div className="text__content" style={this.contentStyles}>
-            <h2 className="text__title">
-              {this.props.data.title}
-            </h2>
+            <TextTitle title={this.state.title} isEditing={this.state.isEditing} handleChange={this.handleChange} />
             <h3 className="text__subtitle">
               {this.props.data.subtitle}
             </h3>
             {this.props.data.description[0].replace(/\n/g, '***').split('***').map(item => <p key={nanoId()} className="text__description">{item}</p>)}
           </div>
+          <EditButton onClick={this.toggleEditorState} isEditing={this.state.isEditing} />
         </div>
       </section>
     )
