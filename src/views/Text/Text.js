@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import nanoId from 'nanoid';
 
 import './Text.scss';
 
@@ -17,23 +18,28 @@ const propTypes = {
 
 class Text extends Component {
   state = {
-    
   }
+
+  componentStyles = {
+    backgroundImage: `url(${this.props.data.backgroundImg})`
+  }
+
+  contentStyles = {
+    justifyContent: this.props.data.textAlign
+  }
+
   render() {
-    console.log('text', this.props.data);
     return (
-      <section className="text">
+      <section className="text" style={this.componentStyles}>
         <div className="container">
-          <div className="text__content">
+          <div className="text__content" style={this.contentStyles}>
             <h2 className="text__title">
               {this.props.data.title}
             </h2>
             <h3 className="text__subtitle">
-            {this.props.data.subtitle}
+              {this.props.data.subtitle}
             </h3>
-            <p className="text__description">
-            {this.props.data.description.splice('/n')}
-            </p>
+            {this.props.data.description[0].replace(/\n/g, '***').split('***').map(item => <p key={nanoId()} className="text__description">{item}</p>)}
           </div>
         </div>
       </section>
