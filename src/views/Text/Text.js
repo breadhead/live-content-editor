@@ -33,6 +33,9 @@ class Text extends Component {
   }
 
   toggleEditorState = () => {
+    if (this.state.isEditing) {
+      console.log('put request');
+    }
     this.setState({ isEditing: !this.state.isEditing })
   }
 
@@ -40,9 +43,7 @@ class Text extends Component {
     this.setState({ [fieldId]: value })
   }
 
-
   render() {
-    console.log('text state', this.state);
     return (
       <TextPoster poster={this.state.poster} isEditing={this.state.isEditing} handleChange={this.handleChange} >
         <div className="container">

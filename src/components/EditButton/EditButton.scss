@@ -2,6 +2,9 @@
 
   &__editor {
     display: block;
+    position: absolute;
+    right: 5%;
+    bottom: 60px;
     width: 80px;
     height: 80px;
     background-color: steelblue;
@@ -16,8 +19,6 @@
     &--edit {
       background-image: url('../../images/edit_icon.png');
       background-size: 70%;
-  
-
     }
   
     &--save {

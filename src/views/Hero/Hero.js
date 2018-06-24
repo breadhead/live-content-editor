@@ -30,6 +30,9 @@ class Hero extends Component {
   }
 
   toggleEditorState = () => {
+    if (this.state.isEditing) {
+      console.log('put request');
+    }
     this.setState({ isEditing: !this.state.isEditing })
   }
 

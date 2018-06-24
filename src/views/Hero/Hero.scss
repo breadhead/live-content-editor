@@ -17,18 +17,6 @@
   &__edit-field {
     display: block;
     width: 100%;
-
-    &--poster {
-      top: 30%;
-    }
-
-    &--video {
-      top: 35%;
-    }
-
-    &--title {
-      top: 140px;
-    }
   }
 
   &__label {
@@ -72,8 +60,6 @@
 
   &__footer {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
     padding-bottom: 60px;
   }
 
@@ -115,6 +101,7 @@
       font-size: 0;
       background-image: url('../../images/two_arrows.png');
       background-repeat: no-repeat;
+      margin: 0 auto;
     }
   }
 
