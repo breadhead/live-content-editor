@@ -27,12 +27,9 @@ export const getData = () => dispatch => {
 };
 
 export const setData = (id, data) => dispatch => {
-  console.log('set RR');
-  console.log(`${id}.json`, data);
-  console.log('dispatch', dispatch);
-  // axios
-  //   .put(`${id}.json`, data)
-  //   .catch(error => {
-  //     dispatch(showErrorPopup(error.message));
-  //   })
+  axios
+    .put(`${appData.endPoint}/${id}`, data)
+    .catch(error => {
+      dispatch(showErrorPopup(error.message));
+    })
 };
