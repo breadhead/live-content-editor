@@ -19,22 +19,33 @@ const propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     description: PropTypes.arrayOf(PropTypes.string)
-  }).isRequired
+  }).isRequired,
+  setData: PropTypes.func.isRequired
 }
 
 class Text extends Component {
   state = {
     isEditing: false,
+    textAlign: this.props.data.textAlign,
+    poster: this.props.data.backgroundImg,
     title: this.props.data.title,
     subtitle: this.props.data.subtitle,
     description: this.props.data.description,
-    poster: this.props.data.backgroundImg,
-    textAlign: this.props.data.textAlign
   }
 
   toggleEditorState = () => {
+    const data = {
+      id: this.props.data.id,
+      type: this.props.data.type,
+      textAlign: this.state.textAlign,
+      backgroundImg: this.state.poster,
+      title: this.state.title,
+      subtitle: this.state.subtitle,
+      description: this.state.description
+    }
+
     if (this.state.isEditing) {
-      console.log('put request');
+      this.props.setData(this.props.data.id, data);
     }
     this.setState({ isEditing: !this.state.isEditing })
   }
