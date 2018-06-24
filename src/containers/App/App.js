@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import * as actions from '../../store/actions/index';
+import * as actionTypes from '../../store/actions/actionTypes';
 
 import Hero from '../../views/Hero/Hero';
 import Text from '../../views/Text/Text';
@@ -14,7 +15,8 @@ const propTypes = {
   setData: PropTypes.func.isRequired,
   data: PropTypes.PropTypes.arrayOf(PropTypes.object).isRequired,
   errorMessage: PropTypes.string.isRequired,
-  visibleError: PropTypes.bool.isRequired
+  visibleError: PropTypes.bool.isRequired,
+  closeErrorPopup: PropTypes.func.isRequired,
 }
 
 const defaultProps = {
@@ -52,7 +54,7 @@ class App extends Component {
           <Hero data={this.state.hero} setData={this.props.setData}/>
           <Text data={this.state.text} setData={this.props.setData}/>
         </Loader>
-        <ErrorPopup visible={this.props.visibleError} errorMessage={this.props.errorMessage} />
+        <ErrorPopup visible={this.props.visibleError} errorMessage={this.props.errorMessage} closePopup={this.props.closeErrorPopup}/>
       </React.Fragment>
     );
   }
@@ -70,6 +72,7 @@ const mapDispatchToProps = dispatch => {
   return {
     getData: () => dispatch(actions.getData()),
     setData: (id, data) => dispatch(actions.setData(id, data)),
+    closeErrorPopup: () => dispatch({ type: actionTypes.CLOSE_ERROR_POPUP }),
   };
 };
 
