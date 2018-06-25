@@ -10,7 +10,7 @@ const propTypes = {
   isEditing: PropTypes.bool.isRequired
 }
 
-const EditButton = (props) => (
+const EditButton = props => (
   <Button
     className={`button button__editor ${props.isEditing ? 'button__editor--save' : 'button__editor--edit'}`}
     onClick={props.onClick}

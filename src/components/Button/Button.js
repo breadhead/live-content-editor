@@ -15,7 +15,7 @@ const defaultProps = {
 }
 
 
-const Button = (props) => (
+const Button = props => (
   <button
     className={props.className}
     onClick={props.onClick}>

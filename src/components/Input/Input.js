@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const propTypes = {
   onInputValueChange: PropTypes.func.isRequired,
   id: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
+  value: PropTypes.PropTypes.string,
   type: PropTypes.string,
   className: PropTypes.string,
   name: PropTypes.string,
@@ -38,8 +38,6 @@ class Input extends Component {
       onChange(value);
     }
   };
-
-
 
   render() {
     return (

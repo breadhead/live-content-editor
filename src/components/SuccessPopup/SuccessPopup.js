@@ -10,7 +10,6 @@ const propTypes = {
   closePopup: PropTypes.func.isRequired,
 }
 
-
 const SuccessPopup = props => (
   props.visible ? <div className="success"><p>успешно отправлено</p><Button className="success-button" onClick={props.closePopup}>close</Button></div> : null
 );

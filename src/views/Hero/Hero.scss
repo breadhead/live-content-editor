@@ -34,6 +34,10 @@
         top: 25%;
       }
     }
+
+    &--title {
+      padding-left: 29%;
+    }
   }
 
   &__label {
@@ -43,7 +47,7 @@
     padding: 0 5px;
     border-radius: 2px;
     width: 50%;
-    font-size: 20px;
+    font-size: $font-size-editor;
   }
 
   &__input {
@@ -51,7 +55,7 @@
     width: 50%;
     padding: 5px;
     border: none;
-    font-size: 20px;
+    font-size: $font-size-editor;
   }
 
   &__video {
@@ -140,13 +144,13 @@
     &__label {
       display: block;
       width: 80%;
-      font-size: 18px;
+      font-size: $font-size-reg-mob;
     }
   
     &__input {
       width: 80%;
       padding: 5px;
-      font-size: 18px;
+      font-size: $font-size-reg-mob;
     }
 
     &__video {
@@ -158,7 +162,7 @@
     }
 
     &__title {
-      font-size: 24px;
+      font-size: $font-size-large-mob;
     }
 
     &__button-switch-screen {

@@ -22,7 +22,6 @@
       &:first-of-type {
         top: 5%;
       }
-
     }
   }
 
@@ -35,7 +34,7 @@
     padding: 0 5px;
     border-radius: 2px;
     width: 100%;
-    font-size: 20px;
+    font-size: $font-size-editor;
   }
 
   &__input {
@@ -45,14 +44,14 @@
     width: 100%;
     border: none;
     border-radius: 2px;
-    font-size: 20px;
+    font-size: $font-size-editor;
   }
 
   &__textarea {
     width: 101%;
     border-radius: 2px;
     resize: none;
-    font-size: 20px;
+    font-size: $font-size-editor;
     padding: 2%;
     box-sizing: border-box;  
   }
@@ -109,18 +108,18 @@
     &__label {
       display: block;
       width: 90%;
-      font-size: 18px;
+      font-size: $font-size-reg-mob;
     }
   
     &__input {
       width: 90%;
       border: none;
-      font-size: 18px;
+      font-size: $font-size-reg-mob;
     }
 
     &__textarea {
       width: 90%;
-      font-size: 18px;
+      font-size: $font-size-reg-mob;
       min-height: 200px;
     }
 
@@ -130,17 +129,17 @@
     }
 
     &__title {
-      font-size: 24px;
+      font-size: $font-size-large-mob;
       margin-bottom: 25px;
     }
 
     &__subtitle {
-      font-size: 20px;
+      font-size: $font-size-med-mob;
       margin-bottom: 25px;
     }
 
     &__description {
-      font-size: 18px;
+      font-size: $font-size-reg-mob;
     }
   }
 }
