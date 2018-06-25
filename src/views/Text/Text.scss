@@ -27,6 +27,7 @@
   }
 
   &__label {
+    text-align: left;
     font-family: $font-family-light;
     display: inline-block;
     background-color: $color-primary;
@@ -38,6 +39,7 @@
   }
 
   &__input {
+    text-align: left;
     font-family: $font-family-light;
     border-radius: 2px;
     padding: 5px;

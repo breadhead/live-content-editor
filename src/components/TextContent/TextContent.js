@@ -22,7 +22,7 @@ class TextContent extends Component {
 
   render() {
     return (
-      <div className="text__content" style={{ justifyContent: this.state.textAlign }}>
+      <div className="text__content" style={{ textAlign: this.state.textAlign }}>
         {this.props.isEditing && (
           <div className="text__edit-field text__edit-field--textAlign">
             <label className="text__label" htmlFor="text-textAlign">выравнивание текста:</label>
