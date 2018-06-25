@@ -1,3 +1,4 @@
+@import './variables';
 @font-face {
   font-family: 'Montserrat-Light';
   src: local('Montserrat-Light'), url('../fonts/Montserrat/Montserrat-Light/Montserrat-Light.woff') format('woff'),
@@ -19,7 +20,7 @@
 }
 
 body {
-  font-size: 32px;
+  font-size: $font-size-reg;
   line-height: 1.2em;
 }
 

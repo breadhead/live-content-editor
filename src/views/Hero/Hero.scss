@@ -1,6 +1,8 @@
+@import "../../styles/variables";
+
 .hero {
-  font-family: Montserrat-Light, Arial, sans;
-  background-color: rgba(255, 202, 76, 0.7);
+  font-family: $font-family-light;
+  background-color: $color-secondary-07;
   background-image: url('../../images/hero_pattern.png');
   background-size: cover;
   box-sizing: border-box;
@@ -35,7 +37,7 @@
 
   &__label {
     display: inline-block;
-    background-color: #fff;
+    background-color: $color-primary;
     margin-right: 20px;
     padding: 0 5px;
     border-radius: 2px;
@@ -68,7 +70,7 @@
 
   &__title {
     width: 60%;
-    font-size: 72px;
+    font-size: $font-size-large;
     margin: 0 auto 10% 29%;
   }
 
@@ -82,7 +84,7 @@
     width: 65px;
     &--prev {
       font-family: Montserrat-Medium, Arial, sans;
-      color: #fff;
+      color: $color-primary;
       position: relative;
       margin-right: 94px;
 
@@ -96,7 +98,7 @@
         background-repeat: no-repeat;
         background-size: contain;
         width: 63px;
-        height: 32px;
+        height: $font-size-reg;
         transform: rotate(180deg);
       }
     
@@ -163,7 +165,7 @@
 
       &--prev {
         font-size: 20px;
-        margin-right: 40px;
+        margin-right: $font-size-med;
 
         &::before {
           left: 60px;

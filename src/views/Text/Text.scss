@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .text {
   position: relative;
 
@@ -24,9 +26,9 @@
   }
 
   &__label {
-    font-family: Montserrat-Light, Arial, sans;
+    font-family: $font-family-light;
     display: inline-block;
-    background-color: #fff;
+    background-color: $color-primary;
     margin-right: 20px;
     padding: 0 5px;
     border-radius: 2px;
@@ -35,7 +37,7 @@
   }
 
   &__input {
-    font-family: Montserrat-Light, Arial, sans;
+    font-family: $font-family-light;
     border-radius: 2px;
     padding: 5px;
     width: 45%;
@@ -44,7 +46,7 @@
   }
 
   &__content {
-    font-family: Montserrat-Light, Arial, sans;
+    font-family: $font-family-light;
     width: 53%;
     box-sizing: border-box;
     margin: 0 auto 0 29%;
@@ -54,14 +56,14 @@
   }
 
   &__title {
-    font-size: 72px;
-    color: #f8d35d;
+    font-size: $font-size-large;
+    color: $color-secondary;
     margin: 0 0 45px 0;
   }
 
   &__subtitle {
-    font-family: Montserrat-Bold, Arial, sans;
-    font-size: 40px;
+    font-family: $font-family-bold;
+    font-size: $font-size-med;
     margin: 0 0 60px 0;
   }
 

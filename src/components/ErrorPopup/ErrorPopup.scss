@@ -1,5 +1,7 @@
+@import "../../styles/variables";
+
 .error {
-  font-family: Montserrat-Light, Arial, sans;
+  font-family: $font-family-light;
   font-size: 18px;
   width: 100%;
   line-height: 0.5em;
