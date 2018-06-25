@@ -46,5 +46,28 @@
         background-color: #fff;
         transform: rotate(-45deg);
     }
+  }
 }
+
+
+@media(max-width: $mobile-width) {
+  .error {
+    font-size: 14px;
+
+    &-button {
+      width: 15px;
+      height: 15px;
+      top: 2%;
+      right: 3%;
+
+      &::before {
+        width: 13px;
+        height: 2px;
+    }
+    &::after {
+        width: 13px;
+        height: 2px;
+    }
+    }
+  }
 }
