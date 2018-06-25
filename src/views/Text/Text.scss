@@ -41,11 +41,20 @@
   &__input {
     text-align: left;
     font-family: $font-family-light;
-    border-radius: 2px;
     padding: 5px;
     width: 100%;
     border: none;
+    border-radius: 2px;
     font-size: 20px;
+  }
+
+  &__textarea {
+    width: 101%;
+    border-radius: 2px;
+    resize: none;
+    font-size: 20px;
+    padding: 2%;
+    box-sizing: border-box;  
   }
 
   &__content {
@@ -107,6 +116,12 @@
       width: 90%;
       border: none;
       font-size: 18px;
+    }
+
+    &__textarea {
+      width: 90%;
+      font-size: 18px;
+      min-height: 200px;
     }
 
     &__content {

@@ -47,6 +47,7 @@ class Text extends Component {
     if (this.state.isEditing) {
       this.props.setData(this.props.data.id, data);
     }
+    console.log('data', data);
     this.setState({ isEditing: !this.state.isEditing })
   }
 
