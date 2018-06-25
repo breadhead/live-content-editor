@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../Button/Button';
@@ -10,17 +10,13 @@ const propTypes = {
   isEditing: PropTypes.bool.isRequired
 }
 
-class EditButton extends Component {
-  state = {}
-  render() {
-    return (
-        <Button
-          className={`button button__editor ${this.props.isEditing ? 'button__editor--save' : 'button__editor--edit'}`}
-          onClick={this.props.onClick}
-        />
-    )
-  }
-}
+const EditButton = (props) => (
+  <Button
+    className={`button button__editor ${props.isEditing ? 'button__editor--save' : 'button__editor--edit'}`}
+    onClick={props.onClick}
+  />
+);
+
 
 EditButton.propTypes = propTypes;
 

@@ -16,6 +16,13 @@ export const showErrorPopup = message => {
   };
 };
 
+export const showSuccessPopup = () => {
+  return {
+    type: actionTypes.SHOW_SUCCESS_POPUP
+  };
+};
+
+
 export const getData = () => dispatch => {
   axios.get(appData.endPoint)
     .then((response) => {
@@ -29,6 +36,9 @@ export const getData = () => dispatch => {
 export const setData = (id, data) => dispatch => {
   axios
     .put(`${appData.endPoint}/${id}`, data)
+    .then((response) => {
+      dispatch(showSuccessPopup(response.data));
+    })
     .catch(error => {
       dispatch(showErrorPopup(error.message));
     })
