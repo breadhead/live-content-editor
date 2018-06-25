@@ -24,7 +24,7 @@ class TextPoster extends Component {
     return (
       <section className="text" style={{ backgroundImage: `url(${this.state.poster})` }}>
         {this.props.isEditing && (
-          <div className="text__edit-field text__edit-field--poster">
+          <div className="text__edit-field text__edit-field--extra text__edit-field--poster">
             <label className="text__label" htmlFor="text-poster">ссылка для фоновой картинки:</label>
             <Input className="text__input" id="text-poster" onInputValueChange={this.onInputValueChange} value={this.state.poster} />
           </div>

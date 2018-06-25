@@ -3,22 +3,23 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import * as actions from '../../store/actions/index';
+import * as actionTypes from '../../store/actions/actionTypes';
 
 import Hero from '../../views/Hero/Hero';
 import Text from '../../views/Text/Text';
 import Loader from '../../components/Loader/Loader';
 import ErrorPopup from '../../components/ErrorPopup/ErrorPopup';
+import SuccessPopup from '../../components/SuccessPopup/SuccessPopup';
 
 const propTypes = {
   getData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
   data: PropTypes.PropTypes.arrayOf(PropTypes.object).isRequired,
   errorMessage: PropTypes.string.isRequired,
-  visibleError: PropTypes.bool.isRequired
-}
-
-const defaultProps = {
-
+  visibleError: PropTypes.bool.isRequired,
+  closeErrorPopup: PropTypes.func.isRequired,
+  visibleSuccess: PropTypes.bool.isRequired,
+  closeSuccessPopup: PropTypes.func.isRequired,
 }
 
 class App extends Component {
@@ -52,7 +53,8 @@ class App extends Component {
           <Hero data={this.state.hero} setData={this.props.setData}/>
           <Text data={this.state.text} setData={this.props.setData}/>
         </Loader>
-        <ErrorPopup visible={this.props.visibleError} errorMessage={this.props.errorMessage} />
+        <ErrorPopup visible={this.props.visibleError} errorMessage={this.props.errorMessage} closePopup={this.props.closeErrorPopup}/>
+        <SuccessPopup visible={this.props.visibleSuccess} closePopup={this.props.closeSuccessPopup}/>
       </React.Fragment>
     );
   }
@@ -63,6 +65,7 @@ const mapStateToProps = state => {
     data: state.data,
     errorMessage: state.errorMessage,
     visibleError: state.visibleError,
+    visibleSuccess: state.visibleSuccess,
   }
 }
 
@@ -70,11 +73,11 @@ const mapDispatchToProps = dispatch => {
   return {
     getData: () => dispatch(actions.getData()),
     setData: (id, data) => dispatch(actions.setData(id, data)),
+    closeErrorPopup: () => dispatch({ type: actionTypes.CLOSE_ERROR_POPUP }),
+    closeSuccessPopup: () =>  dispatch({ type: actionTypes.CLOSE_SUCCESS_POPUP }),
   };
 };
 
 App.propTypes = propTypes;
-
-App.defaultProps = defaultProps;
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

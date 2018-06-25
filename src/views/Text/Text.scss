@@ -1,11 +1,53 @@
+@import "../../styles/variables";
+
 .text {
+  position: relative;
+
   & .container {
     height: 100vh;
     position: relative;
   }
 
+  &__edit-field {
+    display: block;
+    width: auto;
+    margin-bottom: 20px;
+
+    &--extra {
+      position: absolute;
+      z-index: 5;
+      left: 5%;
+      width: 80%;
+
+      &:first-of-type {
+        top: 5%;
+      }
+
+    }
+  }
+
+  &__label {
+    font-family: $font-family-light;
+    display: inline-block;
+    background-color: $color-primary;
+    margin-right: 20px;
+    padding: 0 5px;
+    border-radius: 2px;
+    width: 100%;
+    font-size: 20px;
+  }
+
+  &__input {
+    font-family: $font-family-light;
+    border-radius: 2px;
+    padding: 5px;
+    width: 100%;
+    border: none;
+    font-size: 20px;
+  }
+
   &__content {
-    font-family: Montserrat-Light, Arial, sans;
+    font-family: $font-family-light;
     width: 53%;
     box-sizing: border-box;
     margin: 0 auto 0 29%;
@@ -15,14 +57,14 @@
   }
 
   &__title {
-    font-size: 72px;
-    color: #f8d35d;
+    font-size: $font-size-large;
+    color: $color-secondary;
     margin: 0 0 45px 0;
   }
 
   &__subtitle {
-    font-family: Montserrat-Bold, Arial, sans;
-    font-size: 40px;
+    font-family: $font-family-bold;
+    font-size: $font-size-med;
     margin: 0 0 60px 0;
   }
 
@@ -31,8 +73,40 @@
   }
 }
 
-@media(max-width: 700px) {
+@media(max-width: $mobile-width) {
   .text {
+  
+    &__edit-field {
+      display: block;
+      width: auto;
+      margin-bottom: 20px;
+  
+      &:first-of-type {
+        margin-top: 40%;
+      }
+
+      &--extra {
+        position: absolute;
+        z-index: 5;
+  
+        &:first-of-type {
+          top: 0;
+          margin-top: 0;
+        }
+      }
+    }
+
+    &__label {
+      display: block;
+      width: 90%;
+      font-size: 18px;
+    }
+  
+    &__input {
+      width: 90%;
+      border: none;
+      font-size: 18px;
+    }
 
     &__content {
       padding: 40px 0 20px 0;
