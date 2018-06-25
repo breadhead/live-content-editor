@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .button {
 
   &__editor {
@@ -11,6 +13,7 @@
     border-radius: 50%;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 70%;
 
     &:hover {
       background-color: rgb(0, 65, 139);
@@ -18,12 +21,23 @@
 
     &--edit {
       background-image: url('../../images/edit_icon.png');
-      background-size: 70%;
     }
   
     &--save {
       background-image: url('../../images/save_icon.png');
     }
   }
+}
 
+@media(max-width: $mobile-width) {
+  .button {
+
+    &__editor {
+      right: 5%;
+      bottom: 20px;
+      width: 50px;
+      height: 50px;
+      background-position: center;
+  }
+}
 }

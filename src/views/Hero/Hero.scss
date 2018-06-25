@@ -18,12 +18,13 @@
 
   &__edit-field {
     display: block;
-    width: 100%;
+    width: auto;
 
     &--extra {
       position: absolute;
       z-index: 5;
       left: 5%;
+      width: 80%;
 
       &:first-of-type {
         top: 5%;
@@ -41,13 +42,13 @@
     margin-right: 20px;
     padding: 0 5px;
     border-radius: 2px;
-    width: 25%;
+    width: 50%;
     font-size: 20px;
   }
 
   &__input {
     border-radius: 2px;
-    width: 45%;
+    width: 50%;
     padding: 5px;
     border: none;
     font-size: 20px;
@@ -129,12 +130,12 @@
   }
 }
 
-@media(max-width: 700px) {
+@media(max-width: $mobile-width) {
   .hero {
 
     &__edit-field {
       display: block;
-      width: 100%;
+      width: auto;
     }
 
     &__label {
