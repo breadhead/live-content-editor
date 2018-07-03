@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import nanoId from 'nanoid';
 
 import TextArea from '../TextArea/TextArea';
 
@@ -32,7 +31,7 @@ class TextDescription extends Component {
     if (typeof this.state.description === 'object') {
       return (
         <article className="text__description">
-          {this.state.description[0].replace(/\n/g, '*').split('*').map(item => <p key={nanoId()} className="text__description">{item}</p>)}
+          {this.state.description[0].replace(/\n/g, '*').split('*').map(item => <p key={item[0]} className="text__description">{item}</p>)}
         </article>
       )
     }
