@@ -75,7 +75,8 @@
 
   &__title {
     font-size: $font-size-large;
-    margin: 0 auto 10% 29%;
+    white-space: pre-wrap;
+    margin: 0 auto 0 29%;
   }
 
   &__footer {

@@ -2,15 +2,17 @@ import React from 'react';
 
 const withEditing = (Component) => (
   class ComponentWithEditing extends React.Component {
-    onInputValueChange = (e) => {
-      console.log(e.target);
+
+    onEnterKeyPress = (e) => {
+      if (e.key === 'Enter') {
+        document.execCommand('insertHTML', false, '<br/><br/>');
+        e.preventDefault();
+      }
     }
 
     render() {
       return (
-        <div onBlur={() => console.log('blur')} contentEditable suppressContentEditableWarning>
-          <Component {...this.props} />
-        </div>
+          <Component {...this.props} isEditable onBlur={() => console.log('blur')} onKeyPress={this.onEnterKeyPress} />
       )
     }
   }

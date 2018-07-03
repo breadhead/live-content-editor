@@ -64,7 +64,7 @@ class Hero extends Component {
             <Button className="hero__button-burger">menu</Button>
             <Button className="hero__button-switch-screen hero__button-switch-screen--prev">Great</Button>
           </div>
-          <WithEditingHeroTitle title={this.state.title}/>
+          <WithEditingHeroTitle title={this.state.title} />
           <div className="hero__footer">
             <Button className="hero__button-switch-screen hero__button-switch-screen--next">next screen</Button>
             <EditButton onClick={this.toggleEditorState} isEditing={this.state.isEditing} />
