@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 
 import withEditing from '../../containers/HOC/withEditing';
 
+import Title from '../../components/TextElement/TextElement';
 import EditButton from '../../components/EditButton/EditButton';
-import Title from '../../components/Title/Title';
-import TextDescription from '../../components/TextDescription/TextDescription';
 import TextPoster from '../../components/TextPoster/TextPoster';
 import TextContent from '../../components/TextContent/TextContent';
 
@@ -64,7 +63,7 @@ class Text extends Component {
           <TextContent textAlign={this.state.textAlign} isEditing={this.state.isEditing} handleChange={this.handleChange}>
             <WithEditingTitle type='h2' className='text__title'>{this.state.title}</WithEditingTitle>
             <WithEditingTitle type='h3' className='text__subtitle'>{this.state.subtitle}</WithEditingTitle>
-            <TextDescription description={this.state.description} isEditing={this.state.isEditing} handleChange={this.handleChange} />
+            <WithEditingTitle type='article' className='text__description'>{this.state.description}</WithEditingTitle>
           </TextContent>
           <EditButton onClick={this.toggleEditorState} isEditing={this.state.isEditing} />
         </div>
