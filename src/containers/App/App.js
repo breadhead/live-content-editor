@@ -8,8 +8,7 @@ import * as actionTypes from '../../store/actions/actionTypes';
 import Hero from '../../views/Hero/Hero';
 import Text from '../../views/Text/Text';
 import Loader from '../../components/Loader/Loader';
-import ErrorPopup from '../../components/ErrorPopup/ErrorPopup';
-import SuccessPopup from '../../components/SuccessPopup/SuccessPopup';
+import StatusPopup from '../../components/StatusPopup/StatusPopup';
 
 const propTypes = {
   getData: PropTypes.func.isRequired,
@@ -17,8 +16,8 @@ const propTypes = {
   data: PropTypes.PropTypes.arrayOf(PropTypes.object).isRequired,
   errorMessage: PropTypes.string.isRequired,
   visibleError: PropTypes.bool.isRequired,
-  closeErrorPopup: PropTypes.func.isRequired,
   visibleSuccess: PropTypes.bool.isRequired,
+  closeStatusPopup: PropTypes.func.isRequired,
   closeSuccessPopup: PropTypes.func.isRequired,
 }
 
@@ -53,8 +52,8 @@ class App extends Component {
           <Hero data={this.state.hero} setData={this.props.setData}/>
           <Text data={this.state.text} setData={this.props.setData}/>
         </Loader>
-        <ErrorPopup visible={this.props.visibleError} errorMessage={this.props.errorMessage} closePopup={this.props.closeErrorPopup}/>
-        <SuccessPopup visible={this.props.visibleSuccess} closePopup={this.props.closeSuccessPopup}/>
+        <StatusPopup type='error' visible={this.props.visibleError} errorMessage={this.props.errorMessage} closePopup={this.props.closeStatusPopup}/>
+        <StatusPopup type='success' visible={this.props.visibleSuccess} closePopup={this.props.closeSuccessPopup}/>
       </React.Fragment>
     );
   }
@@ -73,7 +72,7 @@ const mapDispatchToProps = dispatch => {
   return {
     getData: () => dispatch(actions.getData()),
     setData: (id, data) => dispatch(actions.setData(id, data)),
-    closeErrorPopup: () => dispatch({ type: actionTypes.CLOSE_ERROR_POPUP }),
+    closeStatusPopup: () => dispatch({ type: actionTypes.CLOSE_ERROR_POPUP }),
     closeSuccessPopup: () =>  dispatch({ type: actionTypes.CLOSE_SUCCESS_POPUP }),
   };
 };

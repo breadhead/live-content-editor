@@ -22,12 +22,11 @@ const TextElement = ({ className, children, type, ...restProps }) => {
   let splitedChildren;
 
   if (typeof children === 'object') {
-    splitedChildren = children[0].replace(/\n/g, '*#').split('*#').map(item => <React.Fragment>{item}<br/></React.Fragment> )
+    splitedChildren = children[0].replace(/\n/g, '*#').split('*#').map(item => <React.Fragment>{item}<br/></React.Fragment>)
   }
 
   return React.createElement(type, props, splitedChildren || children)
 }
-
 
 TextElement.propTypes = propTypes;
 TextElement.defaultProps = defaultProps;
