@@ -30,7 +30,7 @@ class HeroVideo extends Component {
     }
 
     return (
-      <video className="hero__video" src={this.state.src} autoPlay loop muted />
+      <video className="hero__video" src={this.state.src} loop muted />
     )
   }
 }
