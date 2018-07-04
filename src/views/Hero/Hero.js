@@ -5,7 +5,7 @@ import withEditing from '../../containers/HOC/withEditing';
 
 import Button from '../../components/Button/Button';
 import EditButton from '../../components/EditButton/EditButton';
-import HeroTitle from '../../components/HeroTitle/HeroTitle';
+import Title from '../../components/Title/Title';
 import HeroVideo from '../../components/HeroVideo/HeroVideo';
 import HeroPoster from '../../components/HeroPoster/HeroPoster';
 
@@ -24,7 +24,7 @@ const propTypes = {
   setData: PropTypes.func.isRequired
 }
 
-const WithEditingHeroTitle = withEditing(HeroTitle);
+const WithEditingTitle = withEditing(Title);
 
 class Hero extends Component {
   state = {
@@ -64,7 +64,7 @@ class Hero extends Component {
             <Button className="hero__button-burger">menu</Button>
             <Button className="hero__button-switch-screen hero__button-switch-screen--prev">Great</Button>
           </div>
-          <WithEditingHeroTitle title={this.state.title} />
+          <WithEditingTitle type='h1' className='hero__title'>{this.state.title}</WithEditingTitle>
           <div className="hero__footer">
             <Button className="hero__button-switch-screen hero__button-switch-screen--next">next screen</Button>
             <EditButton onClick={this.toggleEditorState} isEditing={this.state.isEditing} />

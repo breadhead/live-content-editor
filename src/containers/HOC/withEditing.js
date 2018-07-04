@@ -4,7 +4,6 @@ const withEditing = (Component) => (
   class ComponentWithEditing extends React.Component {
 
     onEnterKeyPress = (e) => {
-
       if (e.key === 'Enter' && e.shiftKey) {
         document.execCommand('insertHTML', false, '<br/>');
         e.preventDefault();
@@ -16,7 +15,7 @@ const withEditing = (Component) => (
 
     render() {
       return (
-        <Component {...this.props} isEditable onBlur={() => console.log('blur')} onKeyPress={this.onEnterKeyPress} />
+        <Component {...this.props} contentEditable suppressContentEditableWarning onBlur={() => console.log('blur')} onKeyPress={this.onEnterKeyPress} />
       )
     }
   }

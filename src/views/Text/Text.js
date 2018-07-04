@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import withEditing from '../../containers/HOC/withEditing';
+
 import EditButton from '../../components/EditButton/EditButton';
-import TextTitle from '../../components/TextTitle/TextTitle';
-import TextSubtitle from '../../components/TextSubtitle/TextSubtitle';
+import Title from '../../components/Title/Title';
 import TextDescription from '../../components/TextDescription/TextDescription';
 import TextPoster from '../../components/TextPoster/TextPoster';
 import TextContent from '../../components/TextContent/TextContent';
@@ -22,6 +23,8 @@ const propTypes = {
   }).isRequired,
   setData: PropTypes.func.isRequired
 }
+
+const WithEditingTitle = withEditing(Title);
 
 class Text extends Component {
   state = {
@@ -59,8 +62,8 @@ class Text extends Component {
       <TextPoster poster={this.state.poster} isEditing={this.state.isEditing} handleChange={this.handleChange} >
         <div className="container">
           <TextContent textAlign={this.state.textAlign} isEditing={this.state.isEditing} handleChange={this.handleChange}>
-            <TextTitle title={this.state.title} isEditing={this.state.isEditing} handleChange={this.handleChange} />
-            <TextSubtitle subtitle={this.state.subtitle} isEditing={this.state.isEditing} handleChange={this.handleChange} />
+            <WithEditingTitle type='h2' className='text__title'>{this.state.title}</WithEditingTitle>
+            <WithEditingTitle type='h3' className='text__subtitle'>{this.state.subtitle}</WithEditingTitle>
             <TextDescription description={this.state.description} isEditing={this.state.isEditing} handleChange={this.handleChange} />
           </TextContent>
           <EditButton onClick={this.toggleEditorState} isEditing={this.state.isEditing} />
