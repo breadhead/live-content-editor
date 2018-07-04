@@ -7,7 +7,6 @@ import Button from '../../components/Button/Button';
 import EditButton from '../../components/EditButton/EditButton';
 import Title from '../../components/Title/Title';
 import HeroVideo from '../../components/HeroVideo/HeroVideo';
-import HeroPoster from '../../components/HeroPoster/HeroPoster';
 
 import './Hero.scss';
 
@@ -57,8 +56,8 @@ class Hero extends Component {
 
   render() {
     return (
-      <HeroPoster poster={this.state.poster} isEditing={this.state.isEditing} handleChange={this.handleChange} >
-        <HeroVideo src={this.state.src} isEditing={this.state.isEditing} handleChange={this.handleChange} />
+      <section className="hero">
+        <HeroVideo src={this.state.src} poster={this.state.poster} isEditing={this.state.isEditing} handleChange={this.handleChange} />
         <div className="container">
           <div className="hero__menu">
             <Button className="hero__button-burger">menu</Button>
@@ -70,7 +69,7 @@ class Hero extends Component {
             <EditButton onClick={this.toggleEditorState} isEditing={this.state.isEditing} />
           </div>
         </div>
-      </HeroPoster>
+      </section>
     )
   }
 }

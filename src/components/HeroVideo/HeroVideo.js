@@ -6,7 +6,8 @@ import Input from '../Input/Input';
 const propTypes = {
   src: PropTypes.string.isRequired,
   isEditing: PropTypes.bool.isRequired,
-  handleChange: PropTypes.func.isRequired
+  handleChange: PropTypes.func.isRequired,
+  poster: PropTypes.string.isRequired
 }
 
 class HeroVideo extends Component {
@@ -30,7 +31,7 @@ class HeroVideo extends Component {
     }
 
     return (
-      <video className="hero__video" src={this.state.src} loop muted />
+      <video className="hero__video" poster={this.props.poster} src={this.state.src} loop muted />
     )
   }
 }
