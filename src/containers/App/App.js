@@ -49,11 +49,11 @@ class App extends Component {
     return (
       <React.Fragment>
         <Loader isLoading={this.props.data.length > 0}>
-          <Hero data={this.state.hero} setData={this.props.setData}/>
-          <Text data={this.state.text} setData={this.props.setData}/>
+          <Hero data={this.state.hero} setData={this.props.setData} />
+          <Text data={this.state.text} setData={this.props.setData} />
         </Loader>
-        <StatusPopup type='error' visible={this.props.visibleError} errorMessage={this.props.errorMessage} closePopup={this.props.closeStatusPopup}/>
-        <StatusPopup type='success' visible={this.props.visibleSuccess} closePopup={this.props.closeSuccessPopup}/>
+        <StatusPopup type='error' visible={this.props.visibleError} errorMessage={this.props.errorMessage} closePopup={this.props.closeStatusPopup} />
+        <StatusPopup type='success' visible={this.props.visibleSuccess} closePopup={this.props.closeSuccessPopup} />
       </React.Fragment>
     );
   }
@@ -73,7 +73,7 @@ const mapDispatchToProps = dispatch => {
     getData: () => dispatch(actions.getData()),
     setData: (id, data) => dispatch(actions.setData(id, data)),
     closeStatusPopup: () => dispatch({ type: actionTypes.CLOSE_ERROR_POPUP }),
-    closeSuccessPopup: () =>  dispatch({ type: actionTypes.CLOSE_SUCCESS_POPUP }),
+    closeSuccessPopup: () => dispatch({ type: actionTypes.CLOSE_SUCCESS_POPUP }),
   };
 };
 

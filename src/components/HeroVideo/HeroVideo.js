@@ -31,7 +31,7 @@ class HeroVideo extends Component {
     }
 
     return (
-      <video className="hero__video" poster={this.props.poster} src={this.state.src} loop muted />
+      <video contentEditable className="hero__video" poster={this.props.poster} src={this.state.src} loop muted />
     )
   }
 }

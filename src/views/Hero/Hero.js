@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import withEditing from '../../containers/HOC/withEditing';
 
+import EditorPanel from '../../components/EditorPanel/EditorPanel';
 import TextElement from '../../components/TextElement/TextElement';
 import Button from '../../components/Button/Button';
 import EditButton from '../../components/EditButton/EditButton';
@@ -57,6 +58,7 @@ class Hero extends Component {
   render() {
     return (
       <section className="hero">
+        <EditorPanel src={this.state.src} poster={this.state.poster} />
         <HeroVideo src={this.state.src} poster={this.state.poster} isEditing={this.state.isEditing} handleChange={this.handleChange} />
         <div className="container">
           <div className="hero__menu">

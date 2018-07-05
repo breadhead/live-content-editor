@@ -1,0 +1,40 @@
+.editor-panel {
+    font-size: 0.8em;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.97);
+    &__button {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 50%;
+        background-color: $color-secondary;
+        box-sizing: border-box;
+        border-radius: 3px;
+        &--close {
+            background-color: $color-black;
+            color: $color-white;
+        }
+    }
+    &__controls {
+        width: 400px;
+        padding: 0 3% 5%;
+    }
+    &__item {
+        margin-bottom: 10px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+    &__label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    &__input {
+        width: 100%;
+        font-size: 0.8em;
+    }
+}
