@@ -57,7 +57,7 @@ class Hero extends Component {
   render() {
     return (
       <section className="hero">
-        <EditorPanel src={this.state.src} poster={this.state.poster} handleChange={this.handleChange} />
+        <EditorPanel fields={['video']} src={this.state.src} poster={this.state.poster} handleChange={this.handleChange} />
         <video className="hero__video" poster={this.state.poster} src={this.state.src} autoPlay loop muted />
         <div className="container">
           <div className="hero__menu">

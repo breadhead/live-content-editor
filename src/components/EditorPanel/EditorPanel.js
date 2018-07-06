@@ -4,9 +4,15 @@ import PropTypes from "prop-types";
 import Input from "../Input/Input";
 
 const propTypes = {
-  src: PropTypes.string.isRequired,
-  poster: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired
+  fields: PropTypes.arrayOf(PropTypes.string).isRequired,
+  handleChange: PropTypes.func.isRequired,
+  src: PropTypes.string,
+  poster: PropTypes.string
+};
+
+const defaultProps = {
+  src: "",
+  poster: ""
 };
 
 class EditorPanel extends Component {
@@ -20,6 +26,23 @@ class EditorPanel extends Component {
     this.setState({ [propName]: e.target.value });
   };
 
+  renderVideoField = fieldId => (
+    <React.Fragment key={fieldId}>
+      <div className="editor-panel__item">
+        <label className="editor-panel__label" htmlFor="video">
+          видео:
+        </label>
+        <Input id="video" className="editor-panel__input" onInputValueChange={e => this.onInputValueChange("src", e)} type="text" value={this.state.src} />
+      </div>
+      <div className="editor-panel__item">
+        <label className="editor-panel__label" htmlFor="poster">
+          постер:
+        </label>
+        <Input id="poster" className="editor-panel__input" onInputValueChange={e => this.onInputValueChange("poster", e)} type="text" value={this.state.poster} />
+      </div>
+    </React.Fragment>
+  );
+
   render() {
     return (
       <article className="editor-panel">
@@ -28,30 +51,13 @@ class EditorPanel extends Component {
           save and close
         </button>
         <div className="editor-panel__controls">
-          <div className="editor-panel__item">
-            <label className="editor-panel__label" htmlFor="video">
-              видео:
-            </label>
-            <Input
-              id="video"
-              className="editor-panel__input"
-              onInputValueChange={e => this.onInputValueChange("src", e)}
-              type="text"
-              value={this.state.src}
-            />
-          </div>
-          <div className="editor-panel__item">
-            <label className="editor-panel__label" htmlFor="poster">
-              постер:
-            </label>
-            <Input
-              id="poster"
-              className="editor-panel__input"
-              onInputValueChange={e => this.onInputValueChange("poster", e)}
-              type="text"
-              value={this.state.poster}
-            />
-          </div>
+          {this.props.fields.map(field => {
+            if (field === "video") {
+              return this.renderVideoField("video");
+            }
+
+            return true;
+          })}
         </div>
       </article>
     );
@@ -59,5 +65,6 @@ class EditorPanel extends Component {
 }
 
 EditorPanel.propTypes = propTypes;
+EditorPanel.defaultProps = defaultProps;
 
 export default EditorPanel;
