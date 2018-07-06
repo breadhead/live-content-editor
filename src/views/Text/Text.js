@@ -5,7 +5,6 @@ import withEditing from '../../containers/HOC/withEditing';
 
 import EditorPanel from "../../components/EditorPanel/EditorPanel";
 import TextElement from '../../components/TextElement/TextElement';
-import EditButton from '../../components/EditButton/EditButton';
 
 import './Text.scss';
 
@@ -66,7 +65,6 @@ class Text extends Component {
               <WithEditingTextElement type='h3' className='text__subtitle'>{this.state.subtitle}</WithEditingTextElement>
               <WithEditingTextElement type='article' className='text__description'>{this.state.description}</WithEditingTextElement>
             </div>
-            <EditButton onClick={this.toggleEditorState} isEditing={this.state.isEditing} />
           </div>
         </section>
       </React.Fragment>

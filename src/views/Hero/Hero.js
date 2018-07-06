@@ -5,7 +5,6 @@ import withEditing from "../../containers/HOC/withEditing";
 
 import EditorPanel from "../../components/EditorPanel/EditorPanel";
 import TextElement from "../../components/TextElement/TextElement";
-import EditButton from "../../components/EditButton/EditButton";
 
 import "./Hero.scss";
 
@@ -68,10 +67,6 @@ class Hero extends Component {
           </WithEditingTextElement>
           <div className="hero__footer">
             <button className="hero__button-switch-screen hero__button-switch-screen--next">next screen</button>
-            <EditButton
-              onClick={this.toggleEditorState}
-              isEditing={this.state.isEditing}
-            />
           </div>
         </div>
       </section>
