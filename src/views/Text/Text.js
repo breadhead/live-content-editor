@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 
 import withEditing from '../../containers/HOC/withEditing';
 
-import Title from '../../components/TextElement/TextElement';
+import EditorPanel from "../../components/EditorPanel/EditorPanel";
+import TextElement from '../../components/TextElement/TextElement';
 import EditButton from '../../components/EditButton/EditButton';
-import TextPoster from '../../components/TextPoster/TextPoster';
-import TextContent from '../../components/TextContent/TextContent';
 
 import './Text.scss';
 
@@ -23,13 +22,13 @@ const propTypes = {
   setData: PropTypes.func.isRequired
 }
 
-const WithEditingTitle = withEditing(Title);
+const WithEditingTextElement = withEditing(TextElement);
 
 class Text extends Component {
   state = {
     isEditing: false,
     textAlign: this.props.data.textAlign,
-    poster: this.props.data.backgroundImg,
+    backgroundImg: this.props.data.backgroundImg,
     title: this.props.data.title,
     subtitle: this.props.data.subtitle,
     description: this.props.data.description,
@@ -40,7 +39,7 @@ class Text extends Component {
       id: this.props.data.id,
       type: this.props.data.type,
       textAlign: this.state.textAlign,
-      backgroundImg: this.state.poster,
+      backgroundImg: this.state.backgroundImg,
       title: this.state.title,
       subtitle: this.state.subtitle,
       description: this.state.description
@@ -58,16 +57,19 @@ class Text extends Component {
 
   render() {
     return (
-      <TextPoster poster={this.state.poster} isEditing={this.state.isEditing} handleChange={this.handleChange} >
-        <div className="container">
-          <TextContent textAlign={this.state.textAlign} isEditing={this.state.isEditing} handleChange={this.handleChange}>
-            <WithEditingTitle type='h2' className='text__title'>{this.state.title}</WithEditingTitle>
-            <WithEditingTitle type='h3' className='text__subtitle'>{this.state.subtitle}</WithEditingTitle>
-            <WithEditingTitle type='article' className='text__description'>{this.state.description}</WithEditingTitle>
-          </TextContent>
-          <EditButton onClick={this.toggleEditorState} isEditing={this.state.isEditing} />
-        </div>
-      </TextPoster>
+      <React.Fragment>
+        <section className="text" style={{ backgroundImage: `url(${this.state.backgroundImg})` }}>
+          <EditorPanel fields={[{ name: 'backgroundImg', value: this.state.backgroundImg }, { name: 'textAlign', value: this.state.textAlign }]} handleChange={this.handleChange} />
+          <div className="container">
+            <div className="text__content" style={{ textAlign: this.state.textAlign }}>
+              <WithEditingTextElement type='h2' className='text__title'>{this.state.title}</WithEditingTextElement>
+              <WithEditingTextElement type='h3' className='text__subtitle'>{this.state.subtitle}</WithEditingTextElement>
+              <WithEditingTextElement type='article' className='text__description'>{this.state.description}</WithEditingTextElement>
+            </div>
+            <EditButton onClick={this.toggleEditorState} isEditing={this.state.isEditing} />
+          </div>
+        </section>
+      </React.Fragment>
     )
   }
 }

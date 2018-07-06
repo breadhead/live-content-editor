@@ -5,7 +5,6 @@ import withEditing from "../../containers/HOC/withEditing";
 
 import EditorPanel from "../../components/EditorPanel/EditorPanel";
 import TextElement from "../../components/TextElement/TextElement";
-import Button from "../../components/Button/Button";
 import EditButton from "../../components/EditButton/EditButton";
 
 import "./Hero.scss";
@@ -57,22 +56,18 @@ class Hero extends Component {
   render() {
     return (
       <section className="hero">
-        <EditorPanel fields={['video']} src={this.state.src} poster={this.state.poster} handleChange={this.handleChange} />
+        <EditorPanel fields={[{ name: 'src', value: this.state.src }, { name: 'poster', value: this.state.poster }]} handleChange={this.handleChange} />
         <video className="hero__video" poster={this.state.poster} src={this.state.src} autoPlay loop muted />
         <div className="container">
           <div className="hero__menu">
-            <Button className="hero__button-burger">menu</Button>
-            <Button className="hero__button-switch-screen hero__button-switch-screen--prev">
-              Great
-            </Button>
+            <button className="hero__button-burger">menu</button>
+            <button className="hero__button-switch-screen hero__button-switch-screen--prev">Great</button>
           </div>
           <WithEditingTextElement type="h1" className="hero__title">
             {this.state.title}
           </WithEditingTextElement>
           <div className="hero__footer">
-            <Button className="hero__button-switch-screen hero__button-switch-screen--next">
-              next screen
-            </Button>
+            <button className="hero__button-switch-screen hero__button-switch-screen--next">next screen</button>
             <EditButton
               onClick={this.toggleEditorState}
               isEditing={this.state.isEditing}
