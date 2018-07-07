@@ -1,24 +1,22 @@
 import * as actionTypes from '../actions/actionTypes';
-import { updateObject } from '../utils';
 
 const initialState = {
   data: [],
   visibleError: false,
   visibleSuccess: false,
-	errorMessage: ''
+  errorMessage: ''
 };
 
-const initData = (state, action) => updateObject(state, {
-  data: action.data
-});
+const initData = (state, action) => { return { ...state, ...{ data: action.data } } }
 
-const showStatusPopup = (state, action) => updateObject(state, { visibleError: true, errorMessage: action.message.toLowerCase() })
 
-const showSuccessPopup = (state) => updateObject(state, { visibleSuccess: true })
+const showStatusPopup = (state, action) => { return { ...state, ...{ visibleError: true, errorMessage: action.message.toLowerCase() } } }
 
-const closeStatusPopup = (state) => updateObject(state, { visibleError: false});
+const showSuccessPopup = (state) => { return { ...state, ...{ visibleSuccess: true } } }
 
-const closeSuccessPopup = (state) => updateObject(state, { visibleSuccess: false});
+const closeStatusPopup = (state) => { return { ...state, ...{ visibleError: false } } }
+
+const closeSuccessPopup = (state) => { return { ...state, ...{ visibleSuccess: false } } }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
