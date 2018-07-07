@@ -32,16 +32,14 @@ class App extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.data !== this.props.data) {
-      Object.keys(nextProps.data).forEach((key) => {
-        if (nextProps.data[key].type === "hero") {
-          this.setState({ hero: nextProps.data[key] })
-        }
-        if (nextProps.data[key].type === "text") {
-          this.setState({ text: nextProps.data[key] })
-        }
-      })
-    }
+    Object.keys(nextProps.data).forEach((key) => {
+      if (nextProps.data[key].type === "hero") {
+        this.setState({ hero: nextProps.data[key] })
+      }
+      if (nextProps.data[key].type === "text") {
+        this.setState({ text: nextProps.data[key] })
+      }
+    })
   }
 
 

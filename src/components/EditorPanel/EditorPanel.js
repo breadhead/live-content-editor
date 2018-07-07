@@ -8,6 +8,7 @@ const propTypes = {
   handleChange: PropTypes.func.isRequired,
   visible: PropTypes.bool.isRequired,
   closeEditorPanel: PropTypes.func.isRequired,
+  saveResult: PropTypes.func.isRequired
 };
 
 const EditorPanel = props => {
@@ -30,7 +31,7 @@ const EditorPanel = props => {
     <article className="editor-panel">
       <div className="editor-panel__buttons">
         <button onClick={props.closeEditorPanel} className="editor-panel__button">close</button>
-        <button className="editor-panel__button">save</button>
+        <button onClick={props.saveResult} className="editor-panel__button">save</button>
         <button className="editor-panel__button editor-panel__button--save-close">save and close</button>
       </div>
       <div className="editor-panel__controls">

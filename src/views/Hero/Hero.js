@@ -26,14 +26,13 @@ const WithEditingTextElement = withEditing(TextElement);
 class Hero extends Component {
 
   state = {
-    isEditing: false,
     title: this.props.data.title,
     poster: this.props.data.video.poster,
     src: this.props.data.video.src,
     editorPanelVisible: false
   };
 
-  toggleEditorState = () => {
+  saveResult = () => {
     const data = {
       id: this.props.data.id,
       type: this.props.data.type,
@@ -44,11 +43,9 @@ class Hero extends Component {
       }
     };
 
-    if (this.state.isEditing) {
-      this.props.setData(this.props.data.id, data);
-    }
-    this.setState({ isEditing: !this.state.isEditing });
-  };
+    this.props.setData(this.props.data.id, data);
+  }
+
 
   handleChange = (fieldId, value) => {
     this.setState({ [fieldId]: value });
@@ -58,10 +55,11 @@ class Hero extends Component {
 
   closeEditorPanel = () => this.setState({ editorPanelVisible: false })
 
+
   render() {
     return (
       <section className="hero">
-        <EditorPanel visible={this.state.editorPanelVisible} closeEditorPanel={this.closeEditorPanel} fields={[{ name: 'src', value: this.state.src }, { name: 'poster', value: this.state.poster }]} handleChange={this.handleChange} />
+        <EditorPanel visible={this.state.editorPanelVisible} closeEditorPanel={this.closeEditorPanel} saveResult={this.saveResult} fields={[{ name: 'src', value: this.state.src }, { name: 'poster', value: this.state.poster }]} handleChange={this.handleChange} />
         <video className="hero__video" poster={this.state.poster} src={this.state.src} autoPlay loop muted />
         <div className="container">
           <div className="hero__menu">
