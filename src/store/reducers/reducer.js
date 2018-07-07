@@ -9,7 +9,6 @@ const initialState = {
 
 const initData = (state, action) => { return { ...state, ...{ data: action.data } } }
 
-
 const showStatusPopup = (state, action) => { return { ...state, ...{ visibleError: true, errorMessage: action.message.toLowerCase() } } }
 
 const showSuccessPopup = (state) => { return { ...state, ...{ visibleSuccess: true } } }
