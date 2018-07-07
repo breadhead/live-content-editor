@@ -27,12 +27,17 @@ const EditorPanel = props => {
     </React.Fragment>
   );
 
+  const saveResultAndClose = () => {
+    props.saveResult();
+    props.closeEditorPanel();
+  }
+
   return props.visible ? <React.Fragment>
     <article className="editor-panel">
       <div className="editor-panel__buttons">
         <button onClick={props.closeEditorPanel} className="editor-panel__button">close</button>
         <button onClick={props.saveResult} className="editor-panel__button">save</button>
-        <button className="editor-panel__button editor-panel__button--save-close">save and close</button>
+        <button onClick={saveResultAndClose} className="editor-panel__button editor-panel__button--save-close">save and close</button>
       </div>
       <div className="editor-panel__controls">
         {props.fields.map(field => renderField(field))}
