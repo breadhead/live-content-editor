@@ -24,11 +24,13 @@ const propTypes = {
 const WithEditingTextElement = withEditing(TextElement);
 
 class Hero extends Component {
+
   state = {
     isEditing: false,
     title: this.props.data.title,
     poster: this.props.data.video.poster,
-    src: this.props.data.video.src
+    src: this.props.data.video.src,
+    editorPanelVisible: false
   };
 
   toggleEditorState = () => {
@@ -52,14 +54,18 @@ class Hero extends Component {
     this.setState({ [fieldId]: value });
   };
 
+  openEditorPanel = () => this.setState({ editorPanelVisible: true })
+
+  closeEditorPanel = () => this.setState({ editorPanelVisible: false })
+
   render() {
     return (
       <section className="hero">
-        <EditorPanel fields={[{ name: 'src', value: this.state.src }, { name: 'poster', value: this.state.poster }]} handleChange={this.handleChange} />
+        <EditorPanel visible={this.state.editorPanelVisible} closeEditorPanel={this.closeEditorPanel} fields={[{ name: 'src', value: this.state.src }, { name: 'poster', value: this.state.poster }]} handleChange={this.handleChange} />
         <video className="hero__video" poster={this.state.poster} src={this.state.src} autoPlay loop muted />
         <div className="container">
           <div className="hero__menu">
-            <button className="hero__button-burger">menu</button>
+            <button onClick={this.openEditorPanel} className="hero__button-burger">menu</button>
             <button className="hero__button-switch-screen hero__button-switch-screen--prev">Great</button>
           </div>
           <WithEditingTextElement type="h1" className="hero__title">

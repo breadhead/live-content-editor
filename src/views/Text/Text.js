@@ -31,6 +31,7 @@ class Text extends Component {
     title: this.props.data.title,
     subtitle: this.props.data.subtitle,
     description: this.props.data.description,
+    editorPanelVisible: false
   }
 
   toggleEditorState = () => {
@@ -54,12 +55,17 @@ class Text extends Component {
     this.setState({ [fieldId]: value })
   }
 
+  openEditorPanel = () => this.setState({ editorPanelVisible: true })
+
+  closeEditorPanel = () => this.setState({ editorPanelVisible: false })
+
   render() {
     return (
       <React.Fragment>
         <section className="text" style={{ backgroundImage: `url(${this.state.backgroundImg})` }}>
-          <EditorPanel fields={[{ name: 'backgroundImg', value: this.state.backgroundImg }, { name: 'textAlign', value: this.state.textAlign }]} handleChange={this.handleChange} />
+          <EditorPanel visible={this.state.editorPanelVisible} closeEditorPanel={this.closeEditorPanel} fields={[{ name: 'backgroundImg', value: this.state.backgroundImg }, { name: 'textAlign', value: this.state.textAlign }]} handleChange={this.handleChange} />
           <div className="container">
+            <button onClick={this.openEditorPanel} className="hero__button-burger">menu</button>
             <div className="text__content" style={{ textAlign: this.state.textAlign }}>
               <WithEditingTextElement type='h2' className='text__title'>{this.state.title}</WithEditingTextElement>
               <WithEditingTextElement type='h3' className='text__subtitle'>{this.state.subtitle}</WithEditingTextElement>

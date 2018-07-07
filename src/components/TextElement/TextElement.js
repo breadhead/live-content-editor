@@ -14,7 +14,7 @@ const defaultProps = {
 
 const TextElement = ({ className, children, type, ...restProps }) => {
   const props = {
-    className: `title ${className}`,
+    className,
     children: '',
     ...restProps
   }

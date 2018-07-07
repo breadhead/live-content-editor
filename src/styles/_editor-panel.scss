@@ -1,40 +1,66 @@
 .editor-panel {
-    font-size: 0.8em;
-    position: absolute;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    background-color: rgba(255, 255, 255, 0.97);
-    &__button {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        width: 50%;
-        background-color: $color-secondary;
-        box-sizing: border-box;
-        border-radius: 3px;
-        &--close {
-            background-color: $color-black;
-            color: $color-white;
-        }
-    }
-    &__controls {
-        width: 400px;
-        padding: 0 3% 5%;
-    }
-    &__item {
-        margin-bottom: 10px;
+  font-size: 0.8em;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background-color: rgba(255, 255, 255, 0.97);
 
-        &:last-of-type {
-            margin-bottom: 0;
-        }
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    font-size: 0.8em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    white-space: nowrap;
+    flex-basis: 33%;
+    flex-grow: 1;
+    background-color: $color-secondary;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+    &--save-close {
+      font-size: 0.7em;
+      background-color: $color-black;
+      color: $color-white;
+
+      &:hover {
+        border-left: 1px solid $color-black;
+      }
+
     }
-    &__label {
-        display: block;
-        margin-bottom: 5px;
+    &:first-of-type {
+      border-right: 1px solid $color-black;
     }
-    &__input {
-        width: 100%;
-        font-size: 0.8em;
+    &:hover {
+      background-color: darken($color-secondary, 12%);
+      color: $color-black;
     }
+  }
+
+  &__controls {
+    padding: 0 15px 5%;
+  }
+
+  &__item {
+    width: 400px;
+    margin-bottom: 10px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  &__input {
+    width: 100%;
+    font-size: 0.8em;
+  }
+  
 }
