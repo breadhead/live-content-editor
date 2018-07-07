@@ -66,7 +66,7 @@ class Hero extends Component {
             <button onClick={this.openEditorPanel} className="hero__button-burger">menu</button>
             <button className="hero__button-switch-screen hero__button-switch-screen--prev">Great</button>
           </div>
-          <WithEditingTextElement type="h1" className="hero__title">
+          <WithEditingTextElement saveResult={this.saveResult} type="h1" className="hero__title">
             {this.state.title}
           </WithEditingTextElement>
           <div className="hero__footer">

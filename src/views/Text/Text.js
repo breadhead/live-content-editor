@@ -63,9 +63,9 @@ render() {
         <div className="container">
           <button onClick={this.openEditorPanel} className="hero__button-burger">menu</button>
           <div className="text__content" style={{ textAlign: this.state.textAlign }}>
-            <WithEditingTextElement type='h2' className='text__title'>{this.state.title}</WithEditingTextElement>
-            <WithEditingTextElement type='h3' className='text__subtitle'>{this.state.subtitle}</WithEditingTextElement>
-            <WithEditingTextElement type='article' className='text__description'>{this.state.description}</WithEditingTextElement>
+            <WithEditingTextElement type='h2' className='text__title' saveResult={this.saveResult}>{this.state.title}</WithEditingTextElement>
+            <WithEditingTextElement type='h3' className='text__subtitle' saveResult={this.saveResult}>{this.state.subtitle}</WithEditingTextElement>
+            <WithEditingTextElement type='article' className='text__description' saveResult={this.saveResult}>{this.state.description}</WithEditingTextElement>
           </div>
         </div>
       </section>
