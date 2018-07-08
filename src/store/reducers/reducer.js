@@ -2,12 +2,13 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
   data: [],
+  isRequestDone: false,
   visibleError: false,
   visibleSuccess: false,
   errorMessage: ''
 };
 
-const initData = (state, action) => { return { ...state, ...{ data: action.data } } }
+const initData = (state, action) => { return { ...state, ...{ data: action.data, isRequestDone: true } } }
 
 const showStatusPopup = (state, action) => { return { ...state, ...{ visibleError: true, errorMessage: action.message.toLowerCase() } } }
 

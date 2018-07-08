@@ -13,19 +13,19 @@ import StatusPopup from '../../components/StatusPopup/StatusPopup';
 const propTypes = {
   getData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
-  data: PropTypes.PropTypes.arrayOf(PropTypes.object).isRequired,
   errorMessage: PropTypes.string.isRequired,
   visibleError: PropTypes.bool.isRequired,
   visibleSuccess: PropTypes.bool.isRequired,
   closeStatusPopup: PropTypes.func.isRequired,
   closeSuccessPopup: PropTypes.func.isRequired,
+  isRequestDone: PropTypes.bool.isRequired
 }
 
 class App extends Component {
 
   static getDerivedStateFromProps(props) {
     const state = {};
-  
+
     props.data.forEach(item => {
       state[item.type] = item;
     })
@@ -46,7 +46,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Loader isLoading={this.props.data.length > 0}>
+        <Loader isLoading={this.props.isRequestDone}>
           <Hero data={this.state.hero} setData={this.props.setData} />
           <Text data={this.state.text} setData={this.props.setData} />
         </Loader>
@@ -63,6 +63,7 @@ const mapStateToProps = state => {
     errorMessage: state.errorMessage,
     visibleError: state.visibleError,
     visibleSuccess: state.visibleSuccess,
+    isRequestDone: state.isRequestDone
   }
 }
 
