@@ -6,8 +6,6 @@ import withEditing from "../../containers/HOC/withEditing";
 import EditorPanel from "../../components/EditorPanel/EditorPanel";
 import TextElement from "../../components/TextElement/TextElement";
 
-import "./Hero.scss";
-
 const propTypes = {
   data: PropTypes.shape({
     id: PropTypes.string,
@@ -59,7 +57,7 @@ class Hero extends Component {
         <video className="hero__video" poster={this.state.poster} src={this.state.src} autoPlay loop muted />
         <div className="container">
           <div className="hero__menu">
-            <button onClick={this.openEditorPanel} className="hero__button-burger">menu</button>
+            <button onClick={this.openEditorPanel} className="button-burger">menu</button>
             <button className="hero__button-switch-screen hero__button-switch-screen--prev">Great</button>
           </div>
           <WithEditingTextElement saveResult={this.saveResult} type="h1" className="hero__title">

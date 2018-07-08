@@ -2,7 +2,7 @@
 
 .hero {
   background-color: $color-secondary-07;
-  background-image: url('../../images/hero_pattern.png');
+  background-image: url('../images/hero_pattern.png');
   background-size: cover;
   box-sizing: border-box;
   max-height: 100vh;
@@ -70,13 +70,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 70px;
   }
 
   &__title {
     font-size: $font-size-large;
     white-space: pre-wrap;
-    margin: 0 auto 0 29%;
+    margin: 0 auto 150px 29%;
   }
 
   &__footer {
@@ -87,6 +86,7 @@
   &__button-switch-screen {
     height: 33px;
     width: 65px;
+    margin-top: 70px;
     &--prev {
       font-family: Montserrat-Medium, Arial, sans;
       color: $color-primary;
@@ -99,7 +99,7 @@
         position: absolute;
         top: 0;
         left: 97px;
-        background-image: url('../../images/two_arrows.png');
+        background-image: url('../images/two_arrows.png');
         background-repeat: no-repeat;
         background-size: contain;
         width: 63px;
@@ -120,17 +120,10 @@
   
     &--next {
       font-size: 0;
-      background-image: url('../../images/two_arrows.png');
+      background-image: url('../images/two_arrows.png');
       background-repeat: no-repeat;
       margin: 0 auto;
     }
-  }
-
-  &__button-burger {
-    font-size: 0;
-    background-image: url('../../images/burger.png');
-    width: 27px;
-    height: 20px;
   }
 }
 

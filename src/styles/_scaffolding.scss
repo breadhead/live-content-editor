@@ -40,6 +40,14 @@ button {
   margin: 0 auto;
 }
 
+.button-burger {
+  font-size: 0;
+  background-image: url('../images/burger.png');
+  width: 27px;
+  height: 20px;
+  margin-top: 70px;
+}
+
 @media(max-width: $mobile-width) {
   .container {
     padding: 0 20px;

@@ -1,4 +1,7 @@
 @import "normalize";
 @import "scaffolding";
-@import "editor-panel";
-@import "popup";
+@import '../components/EditorPanel/editor-panel';
+@import '../components/Loader/loader';
+@import '../components/StatusPopup/popup';
+@import '../views/Hero/hero';
+@import '../views/Text/text';

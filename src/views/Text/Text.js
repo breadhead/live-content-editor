@@ -6,8 +6,6 @@ import withEditing from '../../containers/HOC/withEditing';
 import EditorPanel from "../../components/EditorPanel/EditorPanel";
 import TextElement from '../../components/TextElement/TextElement';
 
-import './Text.scss';
-
 const propTypes = {
   data: PropTypes.shape({
     id: PropTypes.string,
@@ -58,7 +56,7 @@ class Text extends Component {
       <section className="text" style={{ backgroundImage: `url(${this.state.backgroundImg})` }}>
         <EditorPanel visible={this.state.editorPanelVisible} closeEditorPanel={this.closeEditorPanel} saveResult={this.saveResult} fields={[{ name: 'backgroundImg', value: this.state.backgroundImg }, { name: 'textAlign', value: this.state.textAlign }]} handleChange={this.handleChange} />
         <div className="container">
-          <button onClick={this.openEditorPanel} className="hero__button-burger">menu</button>
+          <button onClick={this.openEditorPanel} className="button-burger">menu</button>
           <div className="text__content" style={{ textAlign: this.state.textAlign }}>
             <WithEditingTextElement type='h2' className='text__title' saveResult={this.saveResult}>{this.state.title}</WithEditingTextElement>
             <WithEditingTextElement type='h3' className='text__subtitle' saveResult={this.saveResult}>{this.state.subtitle}</WithEditingTextElement>
