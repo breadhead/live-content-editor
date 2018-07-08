@@ -11,6 +11,7 @@ import Loader from '../../components/Loader/Loader';
 import StatusPopup from '../../components/StatusPopup/StatusPopup';
 
 const propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
   getData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
   errorMessage: PropTypes.string.isRequired,
@@ -23,32 +24,23 @@ const propTypes = {
 
 class App extends Component {
 
-  static getDerivedStateFromProps(props) {
-    const state = {};
-
-    props.data.forEach(item => {
-      state[item.type] = item;
-    })
-
-    return state;
-  }
-
-  state = {
-    hero: {},
-    text: {},
-  }
-
   componentDidMount() {
     this.props.getData();
   }
-
 
   render() {
     return (
       <React.Fragment>
         <Loader isLoading={this.props.isRequestDone}>
-          <Hero data={this.state.hero} setData={this.props.setData} />
-          <Text data={this.state.text} setData={this.props.setData} />
+          {this.props.data.map(item => {
+            if (item.type === 'hero') {
+              return <Hero key={item.id} data={item} setData={this.props.setData} />;
+            }
+            if (item.type === 'text') {
+              return <Text key={item.id} data={item} setData={this.props.setData} />;
+            }
+            return null;
+          })}
         </Loader>
         <StatusPopup type='error' visible={this.props.visibleError} errorMessage={this.props.errorMessage} closePopup={this.props.closeStatusPopup} />
         <StatusPopup type='success' visible={this.props.visibleSuccess} closePopup={this.props.closeSuccessPopup} />
