@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '../Button/Button';
-
 const propTypes = {
   errorMessage: PropTypes.string,
   visible: PropTypes.bool.isRequired,
@@ -22,7 +20,7 @@ const StatusPopup = props => {
     popup = (
       <div className="status-popup status-popup--error">
         <p>{`error: ${props.errorMessage || 'unhandled error'}`}</p>
-        <Button className="status-popup-button" onClick={props.closePopup}>close</Button>
+        <button className="status-popup-button" onClick={props.closePopup}>close</button>
       </div>);
   }
 
@@ -30,7 +28,7 @@ const StatusPopup = props => {
     popup = (
       <div className="status-popup status-popup--success">
         <p>успешно отправлено</p>
-        <Button className="status-popup-button" onClick={props.closePopup}>close</Button>
+        <button className="status-popup-button" onClick={props.closePopup}>close</button>
       </div>);
   }
 

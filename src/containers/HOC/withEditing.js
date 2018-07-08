@@ -6,10 +6,10 @@ const withEditing = Component => {
     const { saveResult, ...rest } = props;
     return <Component contentEditable suppressContentEditableWarning onBlur={props.saveResult} {...rest} />
   }
+
   ComponentWithEditing.propTypes = {
     saveResult: PropTypes.func.isRequired
   }
-
 
   return ComponentWithEditing
 }

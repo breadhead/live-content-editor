@@ -33,45 +33,45 @@ class Text extends Component {
     editorPanelVisible: false
   }
 
-saveResult = () => {
-  const data = {
-    id: this.props.data.id,
-    type: this.props.data.type,
-    textAlign: this.state.textAlign,
-    backgroundImg: this.state.backgroundImg,
-    title: this.state.title,
-    subtitle: this.state.subtitle,
-    description: this.state.description
+  saveResult = () => {
+    const data = {
+      id: this.props.data.id,
+      type: this.props.data.type,
+      textAlign: this.state.textAlign,
+      backgroundImg: this.state.backgroundImg,
+      title: this.state.title,
+      subtitle: this.state.subtitle,
+      description: this.state.description
+    }
+
+    this.props.setData(this.props.data.id, data);
   }
 
-  this.props.setData(this.props.data.id, data);
-}
+  handleChange = (fieldId, value) => {
+    this.setState({ [fieldId]: value })
+  }
 
-handleChange = (fieldId, value) => {
-  this.setState({ [fieldId]: value })
-}
+  openEditorPanel = () => this.setState({ editorPanelVisible: true })
 
-openEditorPanel = () => this.setState({ editorPanelVisible: true })
+  closeEditorPanel = () => this.setState({ editorPanelVisible: false })
 
-closeEditorPanel = () => this.setState({ editorPanelVisible: false })
-
-render() {
-  return (
-    <React.Fragment>
-      <section className="text" style={{ backgroundImage: `url(${this.state.backgroundImg})` }}>
-        <EditorPanel visible={this.state.editorPanelVisible} closeEditorPanel={this.closeEditorPanel} saveResult={this.saveResult} fields={[{ name: 'backgroundImg', value: this.state.backgroundImg }, { name: 'textAlign', value: this.state.textAlign }]} handleChange={this.handleChange} />
-        <div className="container">
-          <button onClick={this.openEditorPanel} className="hero__button-burger">menu</button>
-          <div className="text__content" style={{ textAlign: this.state.textAlign }}>
-            <WithEditingTextElement type='h2' className='text__title' saveResult={this.saveResult}>{this.state.title}</WithEditingTextElement>
-            <WithEditingTextElement type='h3' className='text__subtitle' saveResult={this.saveResult}>{this.state.subtitle}</WithEditingTextElement>
-            <WithEditingTextElement type='article' className='text__description' saveResult={this.saveResult}>{this.state.description}</WithEditingTextElement>
+  render() {
+    return (
+      <React.Fragment>
+        <section className="text" style={{ backgroundImage: `url(${this.state.backgroundImg})` }}>
+          <EditorPanel visible={this.state.editorPanelVisible} closeEditorPanel={this.closeEditorPanel} saveResult={this.saveResult} fields={[{ name: 'backgroundImg', value: this.state.backgroundImg }, { name: 'textAlign', value: this.state.textAlign }]} handleChange={this.handleChange} />
+          <div className="container">
+            <button onClick={this.openEditorPanel} className="hero__button-burger">menu</button>
+            <div className="text__content" style={{ textAlign: this.state.textAlign }}>
+              <WithEditingTextElement type='h2' className='text__title' saveResult={this.saveResult}>{this.state.title}</WithEditingTextElement>
+              <WithEditingTextElement type='h3' className='text__subtitle' saveResult={this.saveResult}>{this.state.subtitle}</WithEditingTextElement>
+              <WithEditingTextElement type='article' className='text__description' saveResult={this.saveResult}>{this.state.description}</WithEditingTextElement>
+            </div>
           </div>
-        </div>
-      </section>
-    </React.Fragment>
-  )
-}
+        </section>
+      </React.Fragment>
+    )
+  }
 }
 
 Text.propTypes = propTypes;
