@@ -62,4 +62,12 @@ button {
   .container {
     padding: 0 20px;
   }
+
+  .button-burger {
+    font-size: 0;
+    background-image: url('../images/burger.png');
+    width: 27px;
+    height: 20px;
+    margin-top: 20px;
+  }
 }

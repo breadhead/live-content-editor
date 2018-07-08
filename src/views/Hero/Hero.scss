@@ -151,15 +151,13 @@
       display: none;
     }
 
-    &__menu {
-      padding-top: 20px;
-    }
-
     &__title {
       font-size: $font-size-large-mob;
     }
 
     &__button-switch-screen {
+
+      margin-top: 30px;
 
       &--prev {
         font-size: 20px;
