@@ -46,19 +46,15 @@ class Hero extends Component {
     this.props.setData(this.props.data.id, data);
   }
 
-
-  handleChange = (fieldId, value) => {
-    this.setState({ [fieldId]: value });
-  };
+  handleChange = (fieldId, value) => this.setState({ [fieldId]: value });
 
   openEditorPanel = () => this.setState({ editorPanelVisible: true })
 
   closeEditorPanel = () => this.setState({ editorPanelVisible: false })
 
-
   render() {
     return (
-      <section className="hero">
+      <section className="hero" style={{ backgroundImage: `url(${this.state.poster})` }}>
         <EditorPanel visible={this.state.editorPanelVisible} closeEditorPanel={this.closeEditorPanel} saveResult={this.saveResult} fields={[{ name: 'src', value: this.state.src }, { name: 'poster', value: this.state.poster }]} handleChange={this.handleChange} />
         <video className="hero__video" poster={this.state.poster} src={this.state.src} autoPlay loop muted />
         <div className="container">

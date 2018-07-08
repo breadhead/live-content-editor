@@ -22,24 +22,24 @@ const propTypes = {
 }
 
 class App extends Component {
+
+  static getDerivedStateFromProps(props) {
+    const state = {};
+  
+    props.data.forEach(item => {
+      state[item.type] = item;
+    })
+
+    return state;
+  }
+
   state = {
     hero: {},
-    text: {}
+    text: {},
   }
 
   componentDidMount() {
     this.props.getData();
-  }
-
-  componentWillReceiveProps(nextProps) {
-    Object.keys(nextProps.data).forEach((key) => {
-      if (nextProps.data[key].type === "hero") {
-        this.setState({ hero: nextProps.data[key] })
-      }
-      if (nextProps.data[key].type === "text") {
-        this.setState({ text: nextProps.data[key] })
-      }
-    })
   }
 
 

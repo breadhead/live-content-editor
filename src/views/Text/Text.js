@@ -47,9 +47,7 @@ class Text extends Component {
     this.props.setData(this.props.data.id, data);
   }
 
-  handleChange = (fieldId, value) => {
-    this.setState({ [fieldId]: value })
-  }
+  handleChange = (fieldId, value) => this.setState({ [fieldId]: value })
 
   openEditorPanel = () => this.setState({ editorPanelVisible: true })
 
@@ -57,19 +55,17 @@ class Text extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <section className="text" style={{ backgroundImage: `url(${this.state.backgroundImg})` }}>
-          <EditorPanel visible={this.state.editorPanelVisible} closeEditorPanel={this.closeEditorPanel} saveResult={this.saveResult} fields={[{ name: 'backgroundImg', value: this.state.backgroundImg }, { name: 'textAlign', value: this.state.textAlign }]} handleChange={this.handleChange} />
-          <div className="container">
-            <button onClick={this.openEditorPanel} className="hero__button-burger">menu</button>
-            <div className="text__content" style={{ textAlign: this.state.textAlign }}>
-              <WithEditingTextElement type='h2' className='text__title' saveResult={this.saveResult}>{this.state.title}</WithEditingTextElement>
-              <WithEditingTextElement type='h3' className='text__subtitle' saveResult={this.saveResult}>{this.state.subtitle}</WithEditingTextElement>
-              <WithEditingTextElement type='article' className='text__description' saveResult={this.saveResult}>{this.state.description}</WithEditingTextElement>
-            </div>
+      <section className="text" style={{ backgroundImage: `url(${this.state.backgroundImg})` }}>
+        <EditorPanel visible={this.state.editorPanelVisible} closeEditorPanel={this.closeEditorPanel} saveResult={this.saveResult} fields={[{ name: 'backgroundImg', value: this.state.backgroundImg }, { name: 'textAlign', value: this.state.textAlign }]} handleChange={this.handleChange} />
+        <div className="container">
+          <button onClick={this.openEditorPanel} className="hero__button-burger">menu</button>
+          <div className="text__content" style={{ textAlign: this.state.textAlign }}>
+            <WithEditingTextElement type='h2' className='text__title' saveResult={this.saveResult}>{this.state.title}</WithEditingTextElement>
+            <WithEditingTextElement type='h3' className='text__subtitle' saveResult={this.saveResult}>{this.state.subtitle}</WithEditingTextElement>
+            <WithEditingTextElement type='article' className='text__description' saveResult={this.saveResult}>{this.state.description}</WithEditingTextElement>
           </div>
-        </section>
-      </React.Fragment>
+        </div>
+      </section>
     )
   }
 }
