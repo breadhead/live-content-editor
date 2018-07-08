@@ -38,20 +38,19 @@ const EditorPanel = props => {
     props.closeEditorPanel();
   }
 
-  return props.visible ? <React.Fragment>
-    <article className="editor-panel">
-      <div className="editor-panel__buttons">
-        <button onClick={resetResultAndClose} className="editor-panel__button">close</button>
-        <button onClick={props.saveResult} className="editor-panel__button">save</button>
-        <button onClick={saveResultAndClose} className="editor-panel__button editor-panel__button--save-close">save and close</button>
-      </div>
-      <div className="editor-panel__controls">
-        {props.fields.map(field => renderField(field))}
-      </div>
-    </article>
-  </React.Fragment> : null;
-}
+  return props.visible ? 
+  (<article className="editor-panel">
+    <div className="editor-panel__buttons">
+      <button onClick={resetResultAndClose} className="editor-panel__button">close</button>
+      <button onClick={props.saveResult} className="editor-panel__button">save</button>
+      <button onClick={saveResultAndClose} className="editor-panel__button editor-panel__button--save-close">save and close</button>
+    </div>
+    <div className="editor-panel__controls">
+      {props.fields.map(field => renderField(field))}
+    </div>
+  </article>) : null;
+  }
 
-EditorPanel.propTypes = propTypes;
+  EditorPanel.propTypes = propTypes;
 
-export default EditorPanel;
+  export default EditorPanel;

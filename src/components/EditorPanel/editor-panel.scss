@@ -43,7 +43,7 @@
   }
 
   &__controls {
-    padding: 0 15px 5%;
+    padding: 2% 15px 5%;
   }
 
   &__item {
@@ -74,10 +74,6 @@
 
     &__button {
       font-size:  $font-size-med-mob;
-    }
-
-    &__controls {
-      padding-top: 10px;
     }
 
     &__input {

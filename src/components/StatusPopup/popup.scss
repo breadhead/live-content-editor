@@ -1,75 +1,74 @@
 @import "./variables";
-
 .status-popup {
-    font-family: $font-family-light;
-    font-size: 18px;
-    width: 100%;
-    line-height: 0.5em;
-    text-align: center;
-    color: #fff;
-    display: inline-block;
-    vertical-align: middle;
-    position: fixed;
-    left: 0;
-    top: 0%;
-    z-index: 50;
-    &-button {
-        position: absolute;
-        right: 15%;
-        top: 8px;
-        width: 25px;
-        height: 25px;
-        font-size: 0;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        &::before {
-            content: '';
-            position: absolute;
-            width: 19px;
-            height: 2px;
-            display: block;
-            left: 2px;
-            top: 12px;
-            background-color: #fff;
-            transform: rotate(45deg);
-        }
-        &::after {
-            content: '';
-            position: absolute;
-            width: 19px;
-            height: 2px;
-            display: block;
-            left: 2px;
-            top: 12px;
-            background-color: #fff;
-            transform: rotate(-45deg);
-        }
+  font-family: $font-family-light;
+  font-size: 18px;
+  width: 100%;
+  line-height: 0.5em;
+  text-align: center;
+  color: #fff;
+  display: inline-block;
+  vertical-align: middle;
+  position: fixed;
+  left: 0;
+  top: 0%;
+  z-index: 50;
+  &-button {
+    position: absolute;
+    right: 15%;
+    top: 8px;
+    width: 25px;
+    height: 25px;
+    font-size: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 19px;
+      height: 2px;
+      display: block;
+      left: 2px;
+      top: 12px;
+      background-color: #fff;
+      transform: rotate(45deg);
     }
-    &--error {
-        background-color: rgb(255, 117, 117);
+    &::after {
+      content: '';
+      position: absolute;
+      width: 19px;
+      height: 2px;
+      display: block;
+      left: 2px;
+      top: 12px;
+      background-color: #fff;
+      transform: rotate(-45deg);
     }
-    &--success {
-        background-color: rgb(97, 206, 124);
-    }
+  }
+  &--error {
+    background-color: rgb(255, 117, 117);
+  }
+  &--success {
+    background-color: rgb(97, 206, 124);
+  }
 }
 
 @media(max-width: $mobile-width) {
-    .status-popup {
-        font-size: 14px;
-        &-button {
-            width: 15px;
-            height: 15px;
-            top: 2%;
-            right: 3%;
-            &::before {
-                width: 13px;
-                height: 2px;
-            }
-            &::after {
-                width: 13px;
-                height: 2px;
-            }
-        }
+  .status-popup {
+    font-size: 14px;
+    &-button {
+      width: 15px;
+      height: 15px;
+      top: 2%;
+      right: 3%;
+      &::before {
+        width: 13px;
+        height: 2px;
+      }
+      &::after {
+        width: 13px;
+        height: 2px;
+      }
     }
+  }
 }

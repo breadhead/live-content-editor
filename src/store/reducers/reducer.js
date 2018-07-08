@@ -12,11 +12,11 @@ const initData = (state, action) => { return { ...state, ...{ data: action.data,
 
 const showStatusPopup = (state, action) => { return { ...state, ...{ visibleError: true, errorMessage: action.message.toLowerCase() } } }
 
-const showSuccessPopup = (state) => { return { ...state, ...{ visibleSuccess: true } } }
+const showSuccessPopup = state => { return { ...state, ...{ visibleSuccess: true } } }
 
-const closeStatusPopup = (state) => { return { ...state, ...{ visibleError: false } } }
+const closeStatusPopup = state => { return { ...state, ...{ visibleError: false } } }
 
-const closeSuccessPopup = (state) => { return { ...state, ...{ visibleSuccess: false } } }
+const closeSuccessPopup = state => { return { ...state, ...{ visibleSuccess: false } } }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
