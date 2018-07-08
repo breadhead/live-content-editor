@@ -8,7 +8,8 @@ const propTypes = {
   handleChange: PropTypes.func.isRequired,
   visible: PropTypes.bool.isRequired,
   closeEditorPanel: PropTypes.func.isRequired,
-  saveResult: PropTypes.func.isRequired
+  saveResult: PropTypes.func.isRequired,
+  resetResult: PropTypes.func.isRequired
 };
 
 const EditorPanel = props => {
@@ -32,10 +33,15 @@ const EditorPanel = props => {
     props.closeEditorPanel();
   }
 
+  const resetResultAndClose = () => {
+    props.resetResult();
+    props.closeEditorPanel();
+  }
+
   return props.visible ? <React.Fragment>
     <article className="editor-panel">
       <div className="editor-panel__buttons">
-        <button onClick={props.closeEditorPanel} className="editor-panel__button">close</button>
+        <button onClick={resetResultAndClose} className="editor-panel__button">close</button>
         <button onClick={props.saveResult} className="editor-panel__button">save</button>
         <button onClick={saveResultAndClose} className="editor-panel__button editor-panel__button--save-close">save and close</button>
       </div>

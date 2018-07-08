@@ -49,12 +49,21 @@ class Text extends Component {
 
   openEditorPanel = () => this.setState({ editorPanelVisible: true })
 
+  resetState = () => this.setState({ backgroundImg: this.props.data.backgroundImg, textAlign: this.props.data.textAlign })
+
   closeEditorPanel = () => this.setState({ editorPanelVisible: false })
 
   render() {
     return (
       <section className="text" style={{ backgroundImage: `url(${this.state.backgroundImg})` }}>
-        <EditorPanel visible={this.state.editorPanelVisible} closeEditorPanel={this.closeEditorPanel} saveResult={this.saveResult} fields={[{ name: 'backgroundImg', value: this.state.backgroundImg, label: 'фоновое изображение' }, { name: 'textAlign', value: this.state.textAlign, label: 'выравнивание текста' }]} handleChange={this.handleChange} />
+        <EditorPanel
+          visible={this.state.editorPanelVisible}
+          closeEditorPanel={this.closeEditorPanel}
+          saveResult={this.saveResult}
+          resetResult={this.resetState}
+          fields={[{ name: 'backgroundImg', value: this.state.backgroundImg, label: 'фоновое изображение' }, { name: 'textAlign', value: this.state.textAlign, label: 'выравнивание текста' }]}
+          handleChange={this.handleChange}
+        />
         <div className="container">
           <button onClick={this.openEditorPanel} className="button-burger">menu</button>
           <div className="text__content" style={{ textAlign: this.state.textAlign }}>
