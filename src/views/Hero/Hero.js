@@ -53,7 +53,7 @@ class Hero extends Component {
   render() {
     return (
       <section className="hero" style={{ backgroundImage: `url(${this.state.poster})` }}>
-        <EditorPanel visible={this.state.editorPanelVisible} closeEditorPanel={this.closeEditorPanel} saveResult={this.saveResult} fields={[{ name: 'src', value: this.state.src }, { name: 'poster', value: this.state.poster }]} handleChange={this.handleChange} />
+        <EditorPanel visible={this.state.editorPanelVisible} closeEditorPanel={this.closeEditorPanel} saveResult={this.saveResult} fields={[{ name: 'src', value: this.state.src, label: 'видео' }, { name: 'poster', value: this.state.poster, label: 'постер' }]} handleChange={this.handleChange} />
         <video className="hero__video" poster={this.state.poster} src={this.state.src} autoPlay loop muted />
         <div className="container">
           <div className="hero__menu">

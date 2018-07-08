@@ -54,7 +54,7 @@ class Text extends Component {
   render() {
     return (
       <section className="text" style={{ backgroundImage: `url(${this.state.backgroundImg})` }}>
-        <EditorPanel visible={this.state.editorPanelVisible} closeEditorPanel={this.closeEditorPanel} saveResult={this.saveResult} fields={[{ name: 'backgroundImg', value: this.state.backgroundImg }, { name: 'textAlign', value: this.state.textAlign }]} handleChange={this.handleChange} />
+        <EditorPanel visible={this.state.editorPanelVisible} closeEditorPanel={this.closeEditorPanel} saveResult={this.saveResult} fields={[{ name: 'backgroundImg', value: this.state.backgroundImg, label: 'фоновое изображение' }, { name: 'textAlign', value: this.state.textAlign, label: 'выравнивание текста' }]} handleChange={this.handleChange} />
         <div className="container">
           <button onClick={this.openEditorPanel} className="button-burger">menu</button>
           <div className="text__content" style={{ textAlign: this.state.textAlign }}>

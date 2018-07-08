@@ -20,7 +20,7 @@ const EditorPanel = props => {
     <React.Fragment key={field.name}>
       <div className="editor-panel__item">
         <label className="editor-panel__label" htmlFor={field.name}>
-          {field.name}:
+          {field.label}:
       </label>
         <Input id={field.name} className="editor-panel__input" onInputValueChange={e => onInputValueChange(field.name, e)} type="text" value={field.value} />
       </div>
