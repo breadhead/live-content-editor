@@ -17,7 +17,7 @@ const propTypes = {
   errorMessage: PropTypes.string.isRequired,
   visibleError: PropTypes.bool.isRequired,
   visibleSuccess: PropTypes.bool.isRequired,
-  closeStatusPopup: PropTypes.func.isRequired,
+  closeErrorPopup: PropTypes.func.isRequired,
   closeSuccessPopup: PropTypes.func.isRequired,
   isRequestDone: PropTypes.bool.isRequired
 }
@@ -42,7 +42,7 @@ class App extends Component {
             return null;
           })}
         </Loader>
-        <StatusPopup type='error' visible={this.props.visibleError} errorMessage={this.props.errorMessage} closePopup={this.props.closeStatusPopup} />
+        <StatusPopup type='error' visible={this.props.visibleError} errorMessage={this.props.errorMessage} closePopup={this.props.closeErrorPopup} />
         <StatusPopup type='success' visible={this.props.visibleSuccess} closePopup={this.props.closeSuccessPopup} />
       </React.Fragment>
     );
@@ -63,7 +63,7 @@ const mapDispatchToProps = dispatch => {
   return {
     getData: () => dispatch(actions.getData()),
     setData: (id, data) => dispatch(actions.setData(id, data)),
-    closeStatusPopup: () => dispatch({ type: actionTypes.CLOSE_ERROR_POPUP }),
+    closeErrorPopup: () => dispatch({ type: actionTypes.CLOSE_ERROR_POPUP }),
     closeSuccessPopup: () => dispatch({ type: actionTypes.CLOSE_SUCCESS_POPUP }),
   };
 };

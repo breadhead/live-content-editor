@@ -9,7 +9,7 @@ export const initData = data => {
   };
 };
 
-export const showStatusPopup = message => {
+export const showErrorPopup = message => {
   return {
     type: actionTypes.SHOW_ERROR_POPUP,
     message
@@ -29,7 +29,7 @@ export const getData = () => dispatch => {
       dispatch(initData(response.data));
     })
     .catch((error) => {
-      dispatch(showStatusPopup(error.message));
+      dispatch(showErrorPopup(error.message));
     });
 };
 
@@ -40,6 +40,6 @@ export const setData = (id, data) => dispatch => {
       dispatch(showSuccessPopup(response.data));
     })
     .catch(error => {
-      dispatch(showStatusPopup(error.message));
+      dispatch(showErrorPopup(error.message));
     })
 };
